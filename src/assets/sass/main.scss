@@ -1,0 +1,94 @@
+// ==== Varibles
+@import "./varibles/_variables.scss";
+// ==== Animation
+@import "components/_animation.scss";
+// ==== loader
+@import "components/loader";
+// ==== Forms
+@import "components/_forms.scss";
+// ==== Headers
+@import "components/_header.scss";
+// ==== Home
+@import "components/home";
+// ==== Dashboard Home
+@import "components/_dashboard.scss";
+
+// ==== Global Style
+
+// ==== fonts
+@font-face {
+  font-family: $font-bold;
+  src: url("../fonts/bold.ttf");
+}
+@font-face {
+  font-family: $font-light;
+  src: url("../fonts/light.ttf");
+}
+@font-face {
+  font-family: $font-semiBold;
+  src: url("../fonts/semiBold.ttf");
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $gray-color;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $dark-green;
+  border-radius: 0px;
+  transition: 0.5s;
+}
+
+body {
+  font-family: $font-light;
+  overflow-x: hidden;
+}
+header{
+  border-radius: 25px;
+}
+
+* {
+  outline: none;
+  // color: $dark-color;
+  font-family: $font-light;
+}
+p {
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  color: $dark-color;
+  transition: all 0.5s ease-in-out !important;
+}
+
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+.padding-all-15 {
+  padding: 30px;
+}
+.padding-t-b-0 {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.padding-l-r-0 {
+  padding-left: 0;
+  padding-right: 0;
+}
+.font-bold{
+  font-weight: bold;
+}
+.green-text {
+  color: $dark-green;
+}
