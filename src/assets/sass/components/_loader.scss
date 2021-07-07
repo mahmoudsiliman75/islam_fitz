@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   z-index: 9;
-  background-color: $light-color;
+  background-color: $white;
   border-radius: 20px;
   overflow: hidden;
 
@@ -15,7 +15,7 @@
     height: 100px;
     border-radius: 50%;
     border: 3px solid transparent;
-    border-top-color: $dark-green;
+    border-top-color: $mainColor;
     animation: spin 1.7s linear infinite;
     z-index: 11;
     &:before {
@@ -27,7 +27,7 @@
       bottom: 5px;
       border-radius: 50%;
       border: 3px solid transparent;
-      border-top-color: $light-green;
+      border-top-color: $secondaryColor;
       animation: spin-reverse .6s linear infinite;
     }
     &:after {
@@ -39,7 +39,7 @@
       bottom: 15px;
       border-radius: 50%;
       border: 3px solid transparent;
-      border-top-color: $mid-brown;
+      border-top-color: $deepBlue;
       animation: spin 1s linear infinite;
     }
   }

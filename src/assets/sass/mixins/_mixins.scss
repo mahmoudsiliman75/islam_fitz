@@ -1,0 +1,190 @@
+@mixin transitioning($t) {
+  -moz-transition: all $t ease-in-out;
+  -webkit-transition: all $t ease-in-out;
+  -o-transition: all $t ease-in-out;
+  transition: all $t ease-in-out;
+}
+
+@mixin borderRadius($br) {
+  -moz-border-radius: $br;
+  -webkit-border-radius: $br;
+  -o-border-radius: $br;
+  border-radius: $br;
+}
+
+@mixin menuHoverEffect {
+  overflow: hidden;
+  margin: 0 10px;
+  padding-bottom: 5px;
+  position: relative;
+  font-size: 16px;
+  a {
+    text-decoration: none;
+    color: $mainColor;
+    @include transitioning(0.4s);
+  }
+  &.active {
+    a {
+      color: $secondaryColor;
+      font-weight: bold;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      display: block;
+      width: 100%;
+      border-bottom: 2px dotted $secondaryColor;
+      @include transitioning(0.4s);
+    }
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    left: -100%;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    border-bottom: 2px dotted $secondaryColor;
+    @include transitioning(0.4s);
+  }
+  &:hover {
+    a{
+      color: $secondaryColor;
+    }
+  }
+  &:hover::before {
+    left: 0;
+  }
+}
+
+@mixin btnHoverEffect {
+  text-decoration: none;
+  padding: 8px 15px;
+  border: 2px solid $secondaryColor;
+  background-color: transparent;
+  color: $secondaryColor;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: relative;
+  @include borderRadius(5px);
+  &::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 8%;
+    display: block;
+    width: 20%;
+    height: 2px;
+    background-color: $white;
+    @include transitioning(0.4s);
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: 8%;
+    display: block;
+    width: 20%;
+    height: 2px;
+    background-color: $white;
+    @include transitioning(0.4s);
+  }
+  &:hover {
+    &::before {
+      left: 65%;
+    }
+    &::after {
+      right: 65%;
+    }
+  }
+}
+
+@mixin mainHeaderStyle {
+  padding: 8px 15px;
+  position: relative;
+  color: $mainColor;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    display: block;
+    height: 15px;
+    width: 15px;
+    border: 2px solid $secondaryColor;
+  }
+  &::before {
+    left: 0;
+    border-right: none;
+    border-bottom: none;
+    border-radius: 5px 0 0 0;
+  }
+  &::after{
+    right: 0;
+    border-left: none;
+    border-bottom: none;
+    border-radius: 0 5px 0 0;
+  }
+  span {
+    position: absolute;
+    display: bolck;
+    width: 15px;
+    height: 15px;
+    border: 2px solid $secondaryColor;
+    &:first-child {
+      left: 0;
+      bottom: 0;
+      border-right: none;
+      border-top: none;
+      border-radius: 0 0 0 5px;
+    }
+    &:last-child {
+      right: 0;
+      bottom: 0;
+      border-left: none;
+      border-top: none;
+      border-radius: 0 0 5px 0;
+    }
+  }
+}
+
+@mixin flexCenterAlignment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flexStartAlignment {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@mixin flexEndAlignment {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+@mixin textWraper {
+  word-break: break-word;
+  word-spacing: 2px;
+  font-size: 18px;
+  color: $lightGrey;
+  line-height: 1.6;
+}
+
+@mixin simpleShadow {
+  box-shadow: 0 0 10px 2px rgba(225, 225, 225, 0.3);
+}
+
+@mixin midShadow {
+  box-shadow: 0 0 10px 2px rgba(225, 225, 225, 0.6);
+}
+
+@mixin heighShadow {
+  box-shadow: 0 0 10px 2px rgba(180, 180, 180, 0.6);
+}
