@@ -21,7 +21,7 @@ import "./assets/css/iziToast.min.css";
 import "./assets/sass/main.scss";
 
 // ======== Router File
-import router from "./components/router/index";
+import router from "./router/index.js";
 
 import VueFormulate from "@braid/vue-formulate";
 
@@ -44,8 +44,8 @@ Vue.use(IconsPlugin);
 Vue.use(VueFormulate);
 Vue.prototype.$iziToast = iziToast;
 
-// BaseUrl
-axios.defaults.baseURL = "https://nabet.aber.alalmiyalhura.com/api/";
+// AXIOS BASE URL
+axios.defaults.baseURL = "";
 
 new Vue({
   router,
