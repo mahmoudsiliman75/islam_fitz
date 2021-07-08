@@ -10,6 +10,9 @@
 // ==== ANIMATION
 @import "components/_animation.scss";
 
+// ==== HEADER
+@import "components/header";
+
 
 
 
@@ -37,7 +40,6 @@
 
 body {
   overflow-x: hidden;
-  background-color: red;
 }
 
 p {

@@ -17,28 +17,27 @@
   margin: 0 10px;
   padding-bottom: 5px;
   position: relative;
-  font-size: 16px;
+  font-size: 18px;
   a {
     text-decoration: none;
-    color: $mainColor;
+    color: $darkGrey;
     @include transitioning(0.4s);
-  }
-  &.active {
-    a {
-      color: $secondaryColor;
-      font-weight: bold;
-    }
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      display: block;
-      width: 100%;
-      border-bottom: 2px dotted $secondaryColor;
-      @include transitioning(0.4s);
+    &.router-link-exact-active {
+      color: $mainColor;
+      font-weight: 600;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        display: block;
+        width: 100%;
+        border-bottom: 2px dotted $mainColor;
+        @include transitioning(0.4s);
+      }
     }
   }
+
   &::before {
     content: "";
     position: absolute;
@@ -46,12 +45,12 @@
     bottom: 0;
     display: block;
     width: 100%;
-    border-bottom: 2px dotted $secondaryColor;
+    border-bottom: 2px dotted $mainColor;
     @include transitioning(0.4s);
   }
   &:hover {
     a{
-      color: $secondaryColor;
+      color: $mainColor;
     }
   }
   &:hover::before {
@@ -161,6 +160,12 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+}
+
+@mixin flexSpaceBetweenAlignment {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 @mixin flexEndAlignment {

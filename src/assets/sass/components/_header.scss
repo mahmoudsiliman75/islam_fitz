@@ -1,0 +1,25 @@
+header {
+  @include flexSpaceBetweenAlignment;
+  padding-inline: 15px;
+  padding-block: 10px;
+  border-bottom: 2px solid $mainColor;
+
+  .logo_wraper {
+    width: 120px;
+    height: 50px;
+    img[alt="Site Logo"] {
+      width: 120px;
+      height: 50px;
+    }
+  }
+
+  .menu_wraper {
+    ul {
+      list-style: none;
+      @include flexSpaceBetweenAlignment;
+      li {
+        @include menuHoverEffect;
+      }
+    }
+  }
+}
