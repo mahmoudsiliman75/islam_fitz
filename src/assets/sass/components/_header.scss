@@ -3,6 +3,7 @@ header {
   padding-inline: 15px;
   padding-block: 10px;
   border-bottom: 2px solid $mainColor;
+  @include midShadow;
 
   .logo_wraper {
     width: 120px;

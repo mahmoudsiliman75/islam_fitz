@@ -1,27 +1,21 @@
 <template>
   <div class="home">
-    <!-- START:: THE HEADER -->
-    <TheHeader />
-    <!-- END:: THE HEADER -->
-
-    <h1>Hi from home</h1>
-
-    <!-- START:: THE FOOTER -->
-    <TheFooter />
-    <!-- END:: THE FOOTER -->
+    <div class="main_content_wraper">
+      <!-- START:: HOME INTRO -->
+      <Homeintro />
+      <!-- END:: HOME INTRO -->
+    </div>
   </div>
 </template>
 
 <script>
-import TheHeader from "../../layouts/TheHeader.vue";
-import TheFooter from "../../layouts/TheFooter.vue";
+import Homeintro from "./HomeIntro.vue";
 
 export default {
   name: "Home",
 
   components: {
-    TheHeader,
-    TheFooter,
+    Homeintro,
   },
 };
 </script>

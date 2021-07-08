@@ -1,3 +1,6 @@
+// ==== GOOGLE FONT
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&display=swap');
+
 // ==== VARIABLES
 @import "./varibles/_variables.scss";
 
@@ -11,7 +14,10 @@
 @import "components/_animation.scss";
 
 // ==== HEADER
-@import "components/header";
+@import "components/header.scss";
+
+// ==== HOME STYLES
+@import "components/home.scss";
 
 
 
@@ -32,6 +38,7 @@
 }
 
 * {
+  font-family: 'Raleway', sans-serif;
   outline: none;
   &:focus {
     box-shadow: none;
@@ -57,4 +64,8 @@ li {
   padding: 0;
   margin: 0;
   list-style: none;
+}
+
+.main_content_wraper {
+  min-height: calc(100vh - 72px);
 }
