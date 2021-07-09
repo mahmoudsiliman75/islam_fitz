@@ -75,6 +75,13 @@
     }
   }
 
+  .title_wraper {
+    @include flexCenterAlignment;
+    h2 {
+      color: $white;
+    }
+  }
+
   .text_wraper {
     @include textWraper;
     color: $white;
@@ -111,12 +118,12 @@
   background-position: center;
   background-repeat: repeat;
   background-size: cover;
-  @include flexCenterAlignment;
   position: relative;
 
   .upper_shape_wraper,
   .lower_shape_wraper {
     position: absolute;
+    z-index: 2;
   }
 
   .upper_shape_wraper {
@@ -130,6 +137,16 @@
     bottom: -3px;
     left: 0;
     right: 0;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(36, 201, 150, 0.09);
+    @include flexCenterAlignment;
   }
 
   .title_wraper {
@@ -196,3 +213,15 @@
   }
 }
 // END:: COURSES STYLES
+
+// START:: BEFORE AND AFTER STYLES
+.before_after {
+  padding-block: $paddingAmount;
+  .title_wraper {
+    @include flexCenterAlignment;
+    h2 {
+      @include mainHeaderStyle;
+    }
+  }
+}
+// END:: BEFORE AND AFTER STYLES

@@ -9,6 +9,10 @@
       <AboutUs />
       <!-- END:: ABOUT US -->
 
+      <!-- START:: BEFORE AND AFTER -->
+      <BeforeAndAfter />
+      <!-- END:: BEFORE AND AFTER -->
+
       <!-- START:: COURSES -->
       <Courses />
       <!-- END:: COURSES -->
@@ -19,6 +23,7 @@
 <script>
 import Homeintro from "./HomeIntro.vue";
 import AboutUs from "./AboutUs.vue";
+import BeforeAndAfter from "./BeforeAndAfter.vue";
 import Courses from "./Courses.vue";
 
 export default {
@@ -27,6 +32,7 @@ export default {
   components: {
     Homeintro,
     AboutUs,
+    BeforeAndAfter,
     Courses,
   },
 };

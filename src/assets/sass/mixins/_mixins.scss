@@ -93,49 +93,28 @@
 @mixin mainHeaderStyle {
   padding: 8px 15px;
   position: relative;
-  color: $mainColor;
+  background: linear-gradient(to right, $secondaryColor, $mainColor);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   &::before,
   &::after {
     content: "";
     position: absolute;
     top: 0;
     display: block;
-    height: 15px;
-    width: 15px;
+    height: 100%;
+    width: 20px;
     border: 2px solid $secondaryColor;
   }
   &::before {
     left: 0;
-    border-right: none;
-    border-bottom: none;
-    border-radius: 5px 0 0 0;
+    border-right: none; 
+    border-radius: 5px 0 0 5px;
   }
   &::after{
     right: 0;
-    border-left: none;
-    border-bottom: none;
-    border-radius: 0 5px 0 0;
-  }
-  span {
-    position: absolute;
-    display: bolck;
-    width: 15px;
-    height: 15px;
-    border: 2px solid $secondaryColor;
-    &:first-child {
-      left: 0;
-      bottom: 0;
-      border-right: none;
-      border-top: none;
-      border-radius: 0 0 0 5px;
-    }
-    &:last-child {
-      right: 0;
-      bottom: 0;
-      border-left: none;
-      border-top: none;
-      border-radius: 0 0 5px 0;
-    }
+    border-left: none; 
+    border-radius: 0 5px 5px 0;
   }
 }
 

@@ -24,6 +24,10 @@
         </div>
 
         <div class="col-12 col-md-7 order-1 order-md-2">
+          <div class="title_wraper">
+            <h2>About Cap.Islam</h2>
+          </div>
+
           <div class="text_wraper">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
             Repudiandae ex itaque ullam necessitatibus molestiae a tempora
