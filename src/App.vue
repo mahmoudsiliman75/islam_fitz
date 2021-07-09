@@ -4,9 +4,10 @@
     <TheHeader />
     <!-- END:: THE HEADER -->
 
-    <transition name="slither" mode="out-in">
-      <router-view />
-    </transition>
+    <router-view />
+
+    <!-- <transition name="slither" mode="out-in">
+    </transition> -->
 
     <!-- START:: THE FOOTER -->
     <TheFooter />

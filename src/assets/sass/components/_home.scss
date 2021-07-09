@@ -12,6 +12,7 @@
   .btns_wraper {
     @include flexStartAlignment;
     margin-block: 25px;
+    a, 
     button {
       @include btnHoverEffect;
       font-size: 15x;
@@ -29,3 +30,7 @@
   }
 }
 // END:: HOME INTRO STYLES
+
+// START:: ABOUT US STYLES
+
+// END:: ABOUT US STYLES

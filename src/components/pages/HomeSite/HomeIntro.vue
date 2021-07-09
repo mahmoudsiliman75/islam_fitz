@@ -19,8 +19,8 @@
           </div>
 
           <div class="btns_wraper">
-            <button class="btn">Male</button>
-            <button class="btn">Female</button>
+            <router-link to="/questions/type">Male</router-link>
+            <router-link to="/questions/type">Female</router-link>
           </div>
         </div>
 

@@ -4,6 +4,10 @@
       <!-- START:: HOME INTRO -->
       <Homeintro />
       <!-- END:: HOME INTRO -->
+
+      <!-- START:: ABOUT US -->
+
+      <!-- END:: ABOUT US -->
     </div>
   </div>
 </template>
