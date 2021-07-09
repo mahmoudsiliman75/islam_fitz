@@ -5,6 +5,16 @@
   background-position: center;
   background-repeat: repeat;
   background-size: cover;
+  .title_wraper {
+    @include flexStartAlignment;
+    h1 {
+      background: linear-gradient(to right, $secondaryColor, $mainColor);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 600;
+    }
+  }
+
   .intro_text_wraper {
     @include textWraper;
   }
@@ -32,5 +42,63 @@
 // END:: HOME INTRO STYLES
 
 // START:: ABOUT US STYLES
+.about_us {
+  padding-block: $paddingAmount;
+  background-image: linear-gradient(to right, $mainColor, $secondaryColor);
+  position: relative;
 
+  .upper_shape_wraper,
+  .lower_shape_wraper {
+    position: absolute;
+  }
+
+  .upper_shape_wraper {
+    transform: rotate(180deg);
+    top: -3px;
+    left: 0;
+    right: 0;
+  }
+
+  .lower_shape_wraper {
+    bottom: -3px;
+    left: 0;
+    right: 0;
+  }
+
+  .img_wraper {
+    @include flexCenterAlignment;
+    position: relative;
+    bottom: -40px;
+    img {
+      width: 260px;
+      height: 500px;
+    }
+  }
+
+  .text_wraper {
+    @include textWraper;
+    color: $white;
+  }
+
+  .btn_wraper {
+    @include flexCenterAlignment;
+    margin-block: 25px;
+    a, 
+    button {
+      @include btnHoverEffect;
+      border: 2px solid $white;
+      color: $white;
+      font-size: 15x;
+      width: 40%;
+      margin-inline-end: 20px;
+      text-align: center;
+      &::before {
+        background-color: $white;
+      }
+      &:hover {
+        color: $mainColor;
+      }
+    }
+  }
+}
 // END:: ABOUT US STYLES

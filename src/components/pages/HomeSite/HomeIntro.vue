@@ -7,6 +7,9 @@
           data-aos="fade-right"
           data-aos-duration="2000"
         >
+          <div class="title_wraper">
+            <h1>Lorem Ipsum Dolor Sit</h1>
+          </div>
           <div class="intro_text_wraper">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
             nisi temporibus, esse dolor eum, libero officiis porro possimus

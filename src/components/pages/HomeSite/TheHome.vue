@@ -6,7 +6,7 @@
       <!-- END:: HOME INTRO -->
 
       <!-- START:: ABOUT US -->
-
+      <AboutUs />
       <!-- END:: ABOUT US -->
     </div>
   </div>
@@ -14,12 +14,14 @@
 
 <script>
 import Homeintro from "./HomeIntro.vue";
+import AboutUs from "./AboutUs.vue";
 
 export default {
   name: "Home",
 
   components: {
     Homeintro,
+    AboutUs,
   },
 };
 </script>
