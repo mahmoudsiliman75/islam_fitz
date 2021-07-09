@@ -8,6 +8,10 @@
       <!-- START:: ABOUT US -->
       <AboutUs />
       <!-- END:: ABOUT US -->
+
+      <!-- START:: COURSES -->
+      <Courses />
+      <!-- END:: COURSES -->
     </div>
   </div>
 </template>
@@ -15,6 +19,7 @@
 <script>
 import Homeintro from "./HomeIntro.vue";
 import AboutUs from "./AboutUs.vue";
+import Courses from "./Courses.vue";
 
 export default {
   name: "Home",
@@ -22,6 +27,7 @@ export default {
   components: {
     Homeintro,
     AboutUs,
+    Courses,
   },
 };
 </script>

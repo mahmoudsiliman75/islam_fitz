@@ -47,7 +47,7 @@
     <div class="lower_shape_wraper">
       <Scratch />
     </div>
-    <!-- START:: LOWER SHAPE -->
+    <!-- END:: LOWER SHAPE -->
   </div>
 </template>
 
