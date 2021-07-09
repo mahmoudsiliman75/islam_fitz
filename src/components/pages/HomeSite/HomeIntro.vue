@@ -1,7 +1,7 @@
 <template>
   <div class="home_intro">
     <div class="container">
-      <div class="row justify-content-between align-items-center">
+      <div class="row justify-content-between align-items-center target">
         <div
           class="col-12 col-md-7 order-2 order-md-1 my-3 my-md-0"
           data-aos="fade-right"
@@ -43,3 +43,22 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    controleBackGround() {
+      const target = document.querySelector(".home_intro");
+      target.addEventListener("mousemove", (e) => {
+        let moveX = (e.pageX * -1) / 15;
+        let moveY = (e.pageY * -1) / 15;
+        target.style.backgroundPosition = moveX + "px " + moveY + "px";
+      });
+    },
+  },
+
+  mounted() {
+    this.controleBackGround();
+  },
+};
+</script>
