@@ -1,5 +1,9 @@
 <template>
   <div class="before_after">
+    <!-- START:: LOADER -->
+    <Loader v-if="isLoading" />
+    <!-- END:: LOADER -->
+
     <div class="main_content_wraper">
       <div class="title_wraper">
         <h2>قبل و بعد</h2>
@@ -221,8 +225,20 @@
 </template>
 
 <script>
+import Loader from "../../ui/LoaderScreen.vue";
+
 export default {
   name: "BeforeAndAfter",
+
+  components: {
+    Loader,
+  },
+
+  data() {
+    return {
+      isLoading: true,
+    };
+  },
 
   methods: {
     controleBackGround() {
@@ -236,6 +252,7 @@ export default {
   },
 
   mounted() {
+    this.isLoading = false;
     this.controleBackGround();
   },
 };
