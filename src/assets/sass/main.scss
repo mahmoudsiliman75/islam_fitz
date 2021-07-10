@@ -1,5 +1,5 @@
 // ==== GOOGLE FONT
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700&display=swap');
 
 // ==== VARIABLES
 @import "./varibles/_variables.scss";
@@ -38,7 +38,7 @@
 }
 
 * {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Cairo', sans-serif;
   outline: none;
   &:focus {
     box-shadow: none;
@@ -46,6 +46,7 @@
 }
 
 body {
+  direction: rtl;
   overflow-x: hidden;
 }
 

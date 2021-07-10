@@ -12,6 +12,13 @@
   border-radius: $br;
 }
 
+@mixin customBorderRadius($tl, $tr, $br, $bl) {
+  -moz-border-radius: $tl $tr $br $bl;
+  -o-border-radius: $tl $tr $br $bl;
+  -webkit-border-radius: $tl $tr $br $bl;
+  border-radius: $tl $tr $br $bl;
+}
+
 @mixin menuHoverEffect {
   overflow: hidden;
   margin: 0 10px;

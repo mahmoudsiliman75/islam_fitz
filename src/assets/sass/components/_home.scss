@@ -110,10 +110,77 @@
 }
 // END:: ABOUT US STYLES
 
+// START:: BEFORE AND AFTER STYLES
+.before_after {
+  padding-block: $paddingAmount;
+  background-image: url("../images/shapes/header-sape4.png"), url("../images/shapes/9.png");
+  background-position: center;
+  background-repeat: repeat;
+  .title_wraper {
+    @include flexCenterAlignment;
+    margin-bottom: 25px;
+    h2 {
+      @include mainHeaderStyle;
+    }
+  }
+
+  .card {
+    border: none;
+    padding: 0;
+    @include borderRadius(15px);
+    @include midShadow;
+    .image_wraper {
+      width: 100%;
+      img {
+        @include customBorderRadius(15px, 15px, 0, 0);
+        width: 100%;
+        max-height: 300px;
+      }
+    }
+
+    .card_body_wraper {
+      padding: 15px;
+      text-align: center;
+      h5 {
+        font-weight: 600;
+        background: linear-gradient(to right, $secondaryColor, $mainColor);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .description {
+        @include textWraper;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .btn_wraper {
+    @include flexCenterAlignment;
+    margin-block: 25px;
+    a, 
+    button {
+      @include btnHoverEffect;
+      font-size: 15x;
+      width: 25%;
+      margin-inline-end: 20px;
+      text-align: center;
+    }
+
+    @media ( max-width: 700px ) {
+      a, 
+      button {
+        width: 50%;
+      }
+    }
+  }
+}
+// END:: BEFORE AND AFTER STYLES
+
 // START:: COURSES STYLES
 .courses {
   min-height: 350px;
-  padding-block: $paddingAmount;
+  padding: $paddingAmount;
   background-image: url("../images/shapes/row-bgimage-3.png");
   background-position: center;
   background-repeat: repeat;
@@ -150,15 +217,24 @@
   }
 
   .title_wraper {
-    @include flexCenterAlignment;
+    // @include flexCenterAlignment;
     h2 {
       margin-bottom: 0;
       margin-inline-end: 10px;
-      font-size: 2.5rem;
+      font-size: 2.3rem;
       font-weight: 700;
       background: linear-gradient(to right, $secondaryColor, $mainColor);
       background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+
+    @media ( max-width: 800px ) {
+      h2 {
+        text-align: center;
+        font-size: 1.8rem;
+        margin-inline-end: 0;
+        margin-bottom: 15px;
+      }
     }
 
     .loading {
@@ -213,15 +289,3 @@
   }
 }
 // END:: COURSES STYLES
-
-// START:: BEFORE AND AFTER STYLES
-.before_after {
-  padding-block: $paddingAmount;
-  .title_wraper {
-    @include flexCenterAlignment;
-    h2 {
-      @include mainHeaderStyle;
-    }
-  }
-}
-// END:: BEFORE AND AFTER STYLES

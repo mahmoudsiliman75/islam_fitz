@@ -25,22 +25,22 @@
 
         <div class="col-12 col-md-7 order-1 order-md-2">
           <div class="title_wraper">
-            <h2>About Cap.Islam</h2>
+            <h2>عن كابتن إسلام</h2>
           </div>
 
           <div class="text_wraper">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Repudiandae ex itaque ullam necessitatibus molestiae a tempora
-            inventore non mollitia quam aperiam iste, eum animi impedit
-            asperiores earum explicabo eaque unde veritatis? Ratione, blanditiis
-            deleniti! Voluptate tenetur quaerat ex omnis praesentium quidem!
-            Dolorem ipsa commodi, asperiores quo dolores impedit aliquid.
-            Officia, veniam exercitationem nihil, odio eum, quam in officiis
-            accusantium soluta facere quod eveniet harum itaque!
+            لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو
+            أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت
+            انيم أد مينيم فينايم,كيواس نوستريد أكسير سيتاشن يللأمكو لابورأس نيسي
+            يت أليكيوب أكس أيا كوممودو كونسيكيوات . ديواس أيوتي أريري دولار إن
+            ريبريهينديرأيت فوليوبتاتي فيلايت أيسسي كايلليوم دولار أيو فيجايت
+            نيولا باراياتيور. أيكسسيبتيور ساينت أوككايكات كيوبايداتات نون
+            بروايدينت ,سيونت ان كيولبا كيو أوفيسيا ديسيريونتموليت انيم أيدي ايست
+            لابوريوم
           </div>
 
           <div class="btn_wraper">
-            <router-link to="/about_us"> Show More </router-link>
+            <router-link to="/about_us"> إعرض المزيد </router-link>
           </div>
         </div>
       </div>

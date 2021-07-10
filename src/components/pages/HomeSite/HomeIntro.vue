@@ -8,22 +8,22 @@
           data-aos-duration="2000"
         >
           <div class="title_wraper">
-            <h1>Lorem Ipsum Dolor Sit</h1>
+            <h1>لوريم ايبسوم دولار سيت</h1>
           </div>
           <div class="intro_text_wraper">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-            nisi temporibus, esse dolor eum, libero officiis porro possimus
-            repellat quia minima doloremque enim laboriosam deleniti maiores
-            deserunt expedita maxime voluptatibus nemo alias quis. Laboriosam
-            aspernatur, unde quisquam nostrum dolorem obcaecati dolore fugiat
-            repudiandae iste libero, fuga hic sunt nihil possimus eveniet optio
-            veritatis similique tenetur a voluptate! Ratione, temporibus
-            perferendis.
+            لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو
+            أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت
+            انيم أد مينيم فينايم,كيواس نوستريد أكسير سيتاشن يللأمكو لابورأس نيسي
+            يت أليكيوب أكس أيا كوممودو كونسيكيوات . ديواس أيوتي أريري دولار إن
+            ريبريهينديرأيت فوليوبتاتي فيلايت أيسسي كايلليوم دولار أيو فيجايت
+            نيولا باراياتيور. أيكسسيبتيور ساينت أوككايكات كيوبايداتات نون
+            بروايدينت ,سيونت ان كيولبا كيو أوفيسيا ديسيريونتموليت انيم أيدي ايست
+            لابوريوم
           </div>
 
           <div class="btns_wraper">
-            <router-link to="/questions/type">Male</router-link>
-            <router-link to="/questions/type">Female</router-link>
+            <router-link to="/questions/type">ذكر</router-link>
+            <router-link to="/questions/type">انثي</router-link>
           </div>
         </div>
 
@@ -50,8 +50,8 @@ export default {
     controleBackGround() {
       const target = document.querySelector(".home_intro");
       target.addEventListener("mousemove", (e) => {
-        let moveX = (e.pageX * -1) / 15;
-        let moveY = (e.pageY * -1) / 15;
+        let moveX = -e.pageX / 20;
+        let moveY = -e.pageY / 20;
         target.style.backgroundPosition = moveX + "px " + moveY + "px";
       });
     },
