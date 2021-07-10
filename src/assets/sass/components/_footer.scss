@@ -1,0 +1,124 @@
+footer {
+  padding-top: 45px;
+  background-image: linear-gradient(to right, $mainColor, $secondaryColor);
+  position: relative;
+
+  .lower_shape_wraper {
+    position: absolute;
+    z-index: 2;
+    transform: rotate(180deg);
+    top: -3px;
+    left: 0;
+    right: 0;
+  }
+
+  .footer_logo {
+    @include flexCenterAlignment();
+    img[alt="Site Logo"] {
+      width: 150px;
+      height: 80px;
+    }
+  }
+
+  .short_cuts {
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    a {
+      text-decoration: none;
+      color: $white;
+      @include menuHoverEffect();
+      @include transitioning(0.5s);
+      &:hover {
+        color: $secondaryColor;
+      }
+    }
+  }
+
+  .get_in_touch {
+    padding-bottom: 15px;
+    h5 {
+      color: $white;
+    }
+    ul {
+      color: $white; 
+      li {
+        margin: 8px 0;
+        svg {
+          color: $darkGrey;
+        }
+        span {
+          margin-inline-start: 5px;
+          color: $white;
+          a {
+            text-decoration: none;
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+
+  .follow_us {
+    padding-bottom: 15px;
+    h5 {
+      color: $white;
+    }
+    ul {
+      text-align: center;
+      li {
+        display: inline-block;
+        margin: 3px 5px;
+        @include transitioning(0.6s);
+        a {
+          opacity: 0.6;
+          img {
+            width: 40px;
+            height: 40px;
+            @include borderRadius(7px);
+          }
+        }
+        &:hover {
+          transform: rotate(360deg) scale(1.15);
+          a {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    .payment_methods {
+      @include flexCenterAlignment();
+      span {
+        font-family: 'Acme', sans-serif;
+        margin-inline: 10px;
+        font-size: 20px;
+        color: $white;
+        @include transitioning(0.4s);
+        img {
+          width: 50px;
+          height: 50px;
+        }
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  .copy_rights {
+    padding: 5px;
+    background-color: #121212;
+    color: $white;
+    span {
+      a {
+        text-decoration: none;
+        color: $secondaryColor;
+        @include transitioning(0.5s);
+        &:hover {
+          color: $mainColor;
+        }
+      }
+    }
+  }
+}

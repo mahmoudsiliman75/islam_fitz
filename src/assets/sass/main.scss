@@ -19,6 +19,9 @@
 // ==== HOME STYLES
 @import "components/home.scss";
 
+// ==== FOOTER STYLES
+@import "components/footer";
+
 
 
 
@@ -68,5 +71,5 @@ li {
 }
 
 .main_content_wraper {
-  min-height: calc(100vh - 72px);
+  min-height: calc(100vh - (72px + 246px));
 }
