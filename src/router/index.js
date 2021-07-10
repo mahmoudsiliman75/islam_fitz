@@ -22,6 +22,22 @@ const routes = [
     //   },
     // ],
   },
+  {
+    path: "/about",
+    name: "AboutUs",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "../components/pages/AboutUs/AboutUs.vue"
+      ),
+  },
+  {
+    path: "/before_and_after",
+    name: "BeforeAndAfter",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "../components/pages/BeforeAndAfter/BeforeAndAfter.vue"
+      ),
+  },
 ];
 
 const router = new VueRouter({

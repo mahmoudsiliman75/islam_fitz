@@ -9,15 +9,19 @@
     <div class="menu_wraper">
       <ul>
         <li class="nav_item">
-          <router-link to="/"> Home </router-link>
+          <router-link to="/"> الرئيسية </router-link>
         </li>
 
         <li class="nav_item">
-          <router-link to="/about"> About Us </router-link>
+          <router-link to="/about"> من نحن </router-link>
         </li>
 
         <li class="nav_item">
-          <router-link to="/before_and_after"> Before And After </router-link>
+          <router-link to="/before_and_after"> قبل و بعد </router-link>
+        </li>
+
+        <li class="nav-item">
+          <a href="#"> المدونة </a>
         </li>
       </ul>
     </div>

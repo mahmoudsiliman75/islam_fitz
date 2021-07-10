@@ -31,10 +31,10 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import i18n from "./i18n";
 
-let dashboard_lang = localStorage.getItem("dashboard_lang");
-if (dashboard_lang == "ar") {
-  require("../src/assets/sass/rtl.scss");
-}
+// let dashboard_lang = localStorage.getItem("dashboard_lang");
+// if (dashboard_lang == "ar") {
+//   require("../src/assets/sass/rtl.scss");
+// }
 
 AOS.init();
 Vue.use(iziToast);

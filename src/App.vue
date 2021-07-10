@@ -6,9 +6,6 @@
 
     <router-view />
 
-    <!-- <transition name="slither" mode="out-in">
-    </transition> -->
-
     <!-- START:: THE FOOTER -->
     <TheFooter />
     <!-- END:: THE FOOTER -->

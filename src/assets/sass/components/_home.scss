@@ -217,7 +217,7 @@
   }
 
   .title_wraper {
-    // @include flexCenterAlignment;
+    @include flexCenterAlignment;
     h2 {
       margin-bottom: 0;
       margin-inline-end: 10px;
@@ -229,6 +229,7 @@
     }
 
     @media ( max-width: 800px ) {
+      display: inline-block;
       h2 {
         text-align: center;
         font-size: 1.8rem;
