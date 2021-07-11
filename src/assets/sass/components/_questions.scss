@@ -1,0 +1,74 @@
+.questions {
+  padding-block: $paddingAmount;
+  background-image: url("../images/shapes/striples-bg.svg");
+  background-position: center;
+  background-size: cover;
+
+  .questions_content_wraper {
+    min-height: calc(100vh - 588px);
+    padding-block: $paddingAmount;
+  }
+
+  .vue-form-wizard {
+    direction: ltr;
+    .wizard-header {
+      display: none;
+    }
+    .wizard-navigation {
+      .wizard-progress-with-circle {
+        .wizard-progress-bar {
+          background-color: $mainColor !important;
+          color: $mainColor !important;
+        }
+      }
+
+      .wizard-nav {
+        li {
+          &.active {
+            .wizard-icon-circle {
+              &.checked {
+                border-color: $mainColor !important;
+                background-color: $mainColor !important;
+                .wizard-icon-container {
+                  @include flexCenterAlignment;
+                }
+              }
+            }
+            .stepTitle {
+              color: $mainColor !important;
+            }
+          }
+
+          
+          .wizard-icon-circle {
+            &.checked {
+              border-color: $mainColor !important;
+              color: $mainColor !important;
+              .wizard-icon-container {
+                @include flexCenterAlignment;
+                background-color: $mainColor !important;
+              }
+            }
+
+            @include flexCenterAlignment;
+          }
+        }
+      }
+    }
+
+    .wizard-card-footer {
+      .wizard-footer-left,
+      .wizard-footer-right {
+        span {
+          button {
+            @include btnHoverEffect;
+            background-color: $mainColor !important;
+            border-color: $mainColor !important;
+          }
+        }
+      }
+    }
+
+  }
+
+}

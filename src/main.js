@@ -31,6 +31,10 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import i18n from "./i18n";
 
+// ======== VUE FORM WIZARD
+import VueFormWizard from "vue-form-wizard";
+import "vue-form-wizard/dist/vue-form-wizard.min.css";
+
 // let dashboard_lang = localStorage.getItem("dashboard_lang");
 // if (dashboard_lang == "ar") {
 //   require("../src/assets/sass/rtl.scss");
@@ -42,6 +46,7 @@ Vue.use(VueResource);
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 Vue.use(VueFormulate);
+Vue.use(VueFormWizard);
 Vue.prototype.$iziToast = iziToast;
 
 // AXIOS BASE URL

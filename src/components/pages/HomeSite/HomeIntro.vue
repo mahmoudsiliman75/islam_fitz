@@ -22,8 +22,8 @@
           </div>
 
           <div class="btns_wraper">
-            <router-link to="/questions/type">ذكر</router-link>
-            <router-link to="/questions/type">انثي</router-link>
+            <router-link to="/questions/male">ذكر</router-link>
+            <router-link to="/questions/female">انثي</router-link>
           </div>
         </div>
 

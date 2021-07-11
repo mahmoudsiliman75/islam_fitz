@@ -38,6 +38,14 @@ const routes = [
         /* webpackChunkName: "home" */ "../components/pages/BeforeAndAfter/BeforeAndAfter.vue"
       ),
   },
+  {
+    path: "/questions/:type",
+    name: "Questions",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "../components/pages/Questions/Questions.vue"
+      ),
+  },
 ];
 
 const router = new VueRouter({
