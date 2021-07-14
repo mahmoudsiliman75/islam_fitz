@@ -19,6 +19,9 @@
 // ==== HOME STYLES
 @import "components/home.scss";
 
+// ==== ABOUT US PAGE
+@import "components/about";
+
 // ==== QUESTIONS
 @import "components/questions";
 
@@ -78,5 +81,5 @@ li {
 }
 
 .main_content_wraper {
-  min-height: calc(100vh - (72px + 246px));
+  min-height: calc(100vh - (72px + 238px));
 }
