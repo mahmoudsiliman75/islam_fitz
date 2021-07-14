@@ -22,6 +22,9 @@
 // ==== QUESTIONS
 @import "components/questions";
 
+// ==== FAQS
+@import "components/faqs";
+
 // ==== FOOTER STYLES
 @import "components/footer";
 
@@ -54,6 +57,7 @@
 body {
   direction: rtl;
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 p {

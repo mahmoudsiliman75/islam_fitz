@@ -21,6 +21,10 @@
         </li>
 
         <li class="nav-item">
+          <router-link to="/faqs"> الأسئلة الشائعة </router-link>
+        </li>
+
+        <li class="nav-item">
           <a href="#"> المدونة </a>
         </li>
       </ul>

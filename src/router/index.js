@@ -46,10 +46,18 @@ const routes = [
         /* webpackChunkName: "home" */ "../components/pages/Questions/Questions.vue"
       ),
   },
+  {
+    path: "/faqs",
+    name: "Faqs",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "../components/pages/Faqs/Faqs.vue"
+      ),
+  },
 ];
 
 const router = new VueRouter({
-  mode: "hash",
+  mode: "history",
   base: process.env.BASE_URL,
   scrollBehavior() {
     document.getElementById("app").scrollIntoView({ behavior: "smooth" });

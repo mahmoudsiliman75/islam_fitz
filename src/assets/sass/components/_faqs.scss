@@ -1,0 +1,63 @@
+.faqs {
+  padding: $paddingAmount 0;
+  background: url('../images/shapes/header-sape6.png'), url('../images/shapes/9.png');
+  position: center;
+  background-repeat: repeat;
+  background-size: cover;
+
+  .header_wraper {
+    @include flexCenterAlignment();
+    margin-bottom: 25px;
+    h2 {
+      @include mainHeaderStyle();
+    }
+  }
+
+  .accordion {
+    .card {
+      @include borderRadius(10px);
+      .card-header {    
+        padding: 0;
+        border-bottom: none;              
+        button {
+          width: 100%;
+          padding: 15px;
+          border: none;
+          background-color: transparent;
+          text-decoration: none;
+          color: $mainColor;
+          background-color: $white;
+          font-size: 18px;
+          @include borderRadius(10px);
+          @include flexStartAlignment();
+          svg {
+            margin-inline-end: 8px;
+            @include transitioning(0.4s);
+          }
+          &[aria-expanded='true'] {
+            @include customBorderRadius(10px, 10px, 0, 0);
+            color: $white;
+            background-image: linear-gradient(to right, $mainColor, $secondaryColor);
+            svg {
+              color: $white;
+              transform: rotate(-90deg);
+            }
+          }
+
+          &:focus {
+            box-shadow: none
+          }
+        }
+      }
+
+      .card-body {
+        @include textWraper();
+        font-size: 16px;
+        padding-inline-start: 35px;
+        text-align: start;
+        border-top: none;
+      }
+    }
+  }
+
+}

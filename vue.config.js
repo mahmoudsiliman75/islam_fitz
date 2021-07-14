@@ -9,4 +9,6 @@ module.exports = {
       enableInSFC: true,
     },
   },
+
+  transpileDependencies: ["vuetify"],
 };

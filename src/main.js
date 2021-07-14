@@ -35,6 +35,9 @@ import i18n from "./i18n";
 import VueFormWizard from "vue-form-wizard";
 import "vue-form-wizard/dist/vue-form-wizard.min.css";
 
+// ======== VUETIFY
+import vuetify from "./plugins/vuetify";
+
 // let dashboard_lang = localStorage.getItem("dashboard_lang");
 // if (dashboard_lang == "ar") {
 //   require("../src/assets/sass/rtl.scss");
@@ -55,5 +58,6 @@ axios.defaults.baseURL = "";
 new Vue({
   router,
   i18n,
+  vuetify,
   render: (h) => h(App),
 }).$mount("#app");

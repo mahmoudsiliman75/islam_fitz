@@ -9,6 +9,7 @@
       <tab-content title="السؤال الأول" icon="far fa-edit">
         <div class="questions_content_wraper">
           <div class="container">11111111</div>
+          <v-text-field color="success" label="E-mail" required></v-text-field>
         </div>
       </tab-content>
 
