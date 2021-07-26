@@ -9,31 +9,13 @@
         <div class="row justify-content-center">
           <div class="col-8 col-md-3 text-center">
             <div class="about_us_img_wraper">
-              <img
-                src="../../../assets/images/pics/coach.png"
-                alt="About Us Image"
-              />
+              <img :src="aboutData.photo" alt="About Us Image" />
             </div>
           </div>
 
           <div class="col-12">
             <div class="text_wraper">
-              لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت
-              دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا .
-              يوت انيم أد مينيم فينايم,كيواس نوستريد أكسير سيتاشن يللأمكو
-              لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات . ديواس أيوتي
-              أريري دولار إن ريبريهينديرأيت فوليوبتاتي فيلايت أيسسي كايلليوم
-              دولار أيو فيجايت نيولا باراياتيور. أيكسسيبتيور ساينت أوككايكات
-              كيوبايداتات نون بروايدينت ,سيونت ان كيولبا كيو أوفيسيا
-              ديسيريونتموليت انيم أيدي ايست لابوريوم. لوريم ايبسوم دولار سيت
-              أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور
-              أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم
-              فينايم,كيواس نوستريد أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب
-              أكس أيا كوممودو كونسيكيوات . ديواس أيوتي أريري دولار إن
-              ريبريهينديرأيت فوليوبتاتي فيلايت أيسسي كايلليوم دولار أيو فيجايت
-              نيولا باراياتيور. أيكسسيبتيور ساينت أوككايكات كيوبايداتات نون
-              بروايدينت ,سيونت ان كيولبا كيو أوفيسيا ديسيريونتموليت انيم أيدي
-              ايست لابوريوم.
+              {{ aboutData.description }}
             </div>
           </div>
         </div>
@@ -43,7 +25,35 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "AboutUs",
+
+  data() {
+    return {
+      aboutData: null,
+    };
+  },
+
+  methods: {
+    // START:: GET ABOUT US PAGE DATA
+    getAboutData() {
+      axios.get("about").then((res) => {
+        this.aboutData = res.data[0];
+      });
+    },
+    // END:: GET ABOUT US PAGE DATA
+  },
+
+  mounted() {
+    // START:: GET ABOUT US PAGE DATA
+    this.getAboutData();
+    // END:: GET ABOUT US PAGE DATA
+
+    // setTimeout(() => {
+    //   console.log(this.aboutData);
+    // }, 2000);
+  },
 };
 </script>

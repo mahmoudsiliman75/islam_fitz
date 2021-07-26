@@ -40,7 +40,7 @@
           </div>
 
           <div class="btn_wraper">
-            <router-link to="/about_us"> إعرض المزيد </router-link>
+            <router-link to="/about"> إعرض المزيد </router-link>
           </div>
         </div>
       </div>
