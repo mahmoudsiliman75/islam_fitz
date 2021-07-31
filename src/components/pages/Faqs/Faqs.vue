@@ -6,87 +6,38 @@
           <h2>الأسئلة الشائعة</h2>
         </div>
 
-        <div class="accordion" role="tablist">
+        <div class="accordion" id="faqs_accordion">
           <div class="row justify-content-center">
-            <div class="col-12 col-md-6">
-              <b-card no-body class="my-2">
-                <b-card-header header-tag="header" role="tab">
-                  <b-button v-b-toggle.accordion-1>
-                    <i class="fas fa-angle-double-left"></i>
-                    السؤال الأول
-                  </b-button>
-                </b-card-header>
-                <b-collapse
-                  id="accordion-1"
-                  visible
-                  accordion="faqs_accordion"
-                  role="tabpanel"
+            <div
+              class="col-12 col-md-6"
+              v-for="(faq, index) in faqs"
+              :key="faq.id"
+            >
+              <div class="accordion-item">
+                <h2 class="accordion-header" :id="faq.id">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    :data-bs-target="'#collapse' + faq.id"
+                    aria-expanded="true"
+                    :aria-controls="'collapse' + faq.id"
+                  >
+                    {{ faq.question }}
+                  </button>
+                </h2>
+                <div
+                  :id="'collapse' + faq.id"
+                  class="accordion-collapse collapse"
+                  :class="{ show: index == 0 }"
+                  :aria-labelledby="faq.id"
+                  data-bs-parent="#faqs_accordion"
                 >
-                  <b-card-body>
-                    <b-card-text>{{ text }}</b-card-text>
-                  </b-card-body>
-                </b-collapse>
-              </b-card>
-            </div>
-
-            <div class="col-12 col-md-6">
-              <b-card no-body class="my-2">
-                <b-card-header header-tag="header" role="tab">
-                  <b-button v-b-toggle.accordion-2>
-                    <i class="fas fa-angle-double-left"></i>
-                    السؤال الثانى
-                  </b-button>
-                </b-card-header>
-                <b-collapse
-                  id="accordion-2"
-                  accordion="faqs_accordion"
-                  role="tabpanel"
-                >
-                  <b-card-body>
-                    <b-card-text>{{ text }}</b-card-text>
-                  </b-card-body>
-                </b-collapse>
-              </b-card>
-            </div>
-
-            <div class="col-12 col-md-6">
-              <b-card no-body class="my-2">
-                <b-card-header header-tag="header" role="tab">
-                  <b-button v-b-toggle.accordion-3>
-                    <i class="fas fa-angle-double-left"></i>
-                    السؤال الثالث
-                  </b-button>
-                </b-card-header>
-                <b-collapse
-                  id="accordion-3"
-                  accordion="faqs_accordion"
-                  role="tabpanel"
-                >
-                  <b-card-body>
-                    <b-card-text>{{ text }}</b-card-text>
-                  </b-card-body>
-                </b-collapse>
-              </b-card>
-            </div>
-
-            <div class="col-12 col-md-6">
-              <b-card no-body class="my-2">
-                <b-card-header header-tag="header" role="tab">
-                  <b-button v-b-toggle.accordion-4>
-                    <i class="fas fa-angle-double-left"></i>
-                    السؤال الرابع
-                  </b-button>
-                </b-card-header>
-                <b-collapse
-                  id="accordion-4"
-                  accordion="faqs_accordion"
-                  role="tabpanel"
-                >
-                  <b-card-body>
-                    <b-card-text>{{ text }}</b-card-text>
-                  </b-card-body>
-                </b-collapse>
-              </b-card>
+                  <div class="accordion-body">
+                    {{ faq.answer }}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -96,6 +47,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "Faqs",
 
@@ -111,7 +64,24 @@ export default {
         vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
         synth nesciunt you probably haven't heard of them accusamus labore VHS.
       `,
+      faqs: null,
     };
+  },
+
+  methods: {
+    // START:: GET FAQS PAGE DATA
+    getFaqsData() {
+      axios.get("FAQ").then((res) => {
+        this.faqs = res.data;
+      });
+    },
+    // END:: GET FAQS PAGE DATA
+  },
+
+  mounted() {
+    // START:: FAQS PAGE DATA
+    this.getFaqsData();
+    // END:: FAQS PAGE DATA
   },
 };
 </script>

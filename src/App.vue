@@ -4,7 +4,9 @@
     <TheHeader />
     <!-- END:: HEADER -->
 
-    <router-view />
+    <div class="main_content_wraper">
+      <router-view />
+    </div>
 
     <!-- START:: FOOTER -->
     <TheFooter />

@@ -4,23 +4,21 @@
     <Loader v-if="isLoading" />
     <!-- END:: LOADER -->
 
-    <div class="main_content_wraper">
-      <!-- START:: HOME INTRO -->
-      <Homeintro />
-      <!-- END:: HOME INTRO -->
+    <!-- START:: HOME INTRO -->
+    <Homeintro :data="data" />
+    <!-- END:: HOME INTRO -->
 
-      <!-- START:: ABOUT US -->
-      <AboutUs />
-      <!-- END:: ABOUT US -->
+    <!-- START:: ABOUT US -->
+    <AboutUs :data="data" />
+    <!-- END:: ABOUT US -->
 
-      <!-- START:: BEFORE AND AFTER -->
-      <BeforeAndAfter />
-      <!-- END:: BEFORE AND AFTER -->
+    <!-- START:: BEFORE AND AFTER -->
+    <BeforeAndAfter />
+    <!-- END:: BEFORE AND AFTER -->
 
-      <!-- START:: COURSES -->
-      <Courses />
-      <!-- END:: COURSES -->
-    </div>
+    <!-- START:: COURSES -->
+    <Courses />
+    <!-- END:: COURSES -->
   </div>
 </template>
 
@@ -30,6 +28,8 @@ import Homeintro from "./HomeIntro.vue";
 import AboutUs from "./AboutUs.vue";
 import BeforeAndAfter from "./BeforeAndAfter.vue";
 import Courses from "./Courses.vue";
+
+import axios from "axios";
 
 export default {
   name: "Home",
@@ -45,11 +45,26 @@ export default {
   data() {
     return {
       isLoading: true,
+      data: null,
     };
   },
 
+  methods: {
+    // START:: GET HOME PAGE DATA
+    getHomeData() {
+      (this.isLoading = false),
+        axios.get("").then((res) => {
+          (this.isLoading = false), (this.data = res.data[0]);
+        });
+    },
+    // END:: GET HOME PAGE DATA
+  },
+
   mounted() {
-    this.isLoading = false;
+    (this.isLoading = true),
+      // STAT:: GET HOME PAGE DATA
+      this.getHomeData();
+    // END:: GET HOME PAGE DATA
   },
 };
 </script>

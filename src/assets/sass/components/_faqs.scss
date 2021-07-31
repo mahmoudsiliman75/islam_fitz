@@ -14,12 +14,13 @@
   }
 
   .accordion {
-    .card {
+    .accordion-item {
       @include borderRadius(10px);
-      .card-header {    
+      .accordion-header {    
         padding: 0;
         border-bottom: none;              
-        button {
+        button,
+        a {
           width: 100%;
           padding: 15px;
           border: none;
@@ -30,6 +31,9 @@
           font-size: 18px;
           @include borderRadius(10px);
           @include flexStartAlignment();
+          &::after {
+            display: none;
+          }
           svg {
             margin-inline-end: 8px;
             @include transitioning(0.4s);
@@ -50,7 +54,7 @@
         }
       }
 
-      .card-body {
+      .accordion-body {
         @include textWraper();
         font-size: 16px;
         padding-inline-start: 35px;
