@@ -15,8 +15,8 @@
           </div>
 
           <div class="btns_wraper">
-            <router-link to="/questions/male">ذكر</router-link>
-            <router-link to="/questions/female">انثي</router-link>
+            <router-link to="/questions/Man">ذكر</router-link>
+            <router-link to="/questions/Woman">انثي</router-link>
           </div>
         </div>
 

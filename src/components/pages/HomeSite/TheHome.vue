@@ -53,7 +53,7 @@ export default {
     // START:: GET HOME PAGE DATA
     getHomeData() {
       (this.isLoading = false),
-        axios.get("").then((res) => {
+        axios.get("home").then((res) => {
           (this.isLoading = false), (this.data = res.data[0]);
         });
     },

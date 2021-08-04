@@ -30,7 +30,8 @@
         background: linear-gradient(to right, $mainColor, $secondaryColor);
         background-clip: text;
         -webkit-text-fill-color: transparent;
-        font-weight: 600;
+        font-weight: 700;
+        margin-bottom: 15px;
       }
     }
 
@@ -42,7 +43,16 @@
       flex-wrap: wrap;
 
       li {
+        &.selected_answer {
+          img {
+            border: 2px solid $mainColor;
+          }
+        }
+        
         label {
+          input[type="radio"] {
+            display: none;
+          }
           img {
             @include borderRadius(10px);
             @include midShadow;
@@ -50,11 +60,6 @@
             max-width: 200px;
             min-height: 200px;
             max-height: 200px;
-          }
-          &.selected_answer {
-            img {
-              border: 2px solid $mainColor;
-            }
           }
         }
       }

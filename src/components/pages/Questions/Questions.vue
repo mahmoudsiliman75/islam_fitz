@@ -23,6 +23,16 @@
               <div class="col-12 col-md-6 my-3 px-5">
                 <v-text-field
                   color="success"
+                  label="رقم الهاتف"
+                  prepend-icon="mdi-phone"
+                  v-model="phone"
+                >
+                </v-text-field>
+              </div>
+
+              <div class="col-12 col-md-6 my-3 px-5">
+                <v-text-field
+                  color="success"
                   label="الوزن (بالكيلو)"
                   prepend-icon="mdi-scale"
                   v-model="weight"
@@ -44,85 +54,46 @@
         </div>
       </tab-content>
 
-      <tab-content title="السؤال الأول" icon="far fa-edit">
+      <tab-content
+        v-for="question in questions"
+        :key="question.id"
+        :title="question.question_title"
+        icon="far fa-edit"
+      >
         <div class="questions_content_wraper">
           <div class="container">
             <div class="question_text_wraper">
-              <h3>السؤال الأول سوف يعرض هنا</h3>
+              <h3>{{ question.question }}</h3>
             </div>
 
             <ul class="answers_list">
-              <li>
-                <label for="answer_1">
+              <li
+                v-for="answer in question.answer"
+                :key="answer.id"
+                :class="selected_answer == answer.id ? 'selected_answer' : ''"
+              >
+                <label :for="answer.id">
                   <input
                     type="radio"
-                    value="answer-1"
-                    name="question_1"
-                    id="answer_1"
-                    @change="selectedAnswer"
+                    :value="answer.answer.id"
+                    name="answer"
+                    :id="answer.id"
+                    @change="selectedAnswer(answer.id)"
                   />
                   <img
-                    src="../../../assets/images/pics/answer.jpeg"
-                    alt="Question Answer"
-                  />
-                </label>
-              </li>
-
-              <li>
-                <label for="answer_2">
-                  <input
-                    type="radio"
-                    value="answer-2"
-                    name="question_1"
-                    id="answer_2"
-                    @change="selectedAnswer"
-                  />
-                  <img
-                    src="../../../assets/images/pics/answer.jpeg"
-                    alt="Question Answer"
-                  />
-                </label>
-              </li>
-
-              <li>
-                <label for="answer_3">
-                  <input
-                    type="radio"
-                    value="answer-3"
-                    name="question_1"
-                    id="answer_3"
-                    @change="selectedAnswer"
-                  />
-                  <img
-                    src="../../../assets/images/pics/answer.jpeg"
-                    alt="Question Answer"
-                  />
-                </label>
-              </li>
-
-              <li>
-                <label for="answer_4">
-                  <input
-                    type="radio"
-                    value="answer-4"
-                    name="question_1"
-                    id="answer_4"
-                    @change="selectedAnswer"
-                  />
-                  <img
-                    src="../../../assets/images/pics/answer.jpeg"
-                    alt="Question Answer"
+                    :src="answer.answer.answer"
+                    :alt="answer.answer.answer_title"
                   />
                 </label>
               </li>
             </ul>
-          </div>
-        </div>
-      </tab-content>
 
-      <tab-content title="السؤال الثانى" icon="far fa-edit">
-        <div class="questions_content_wraper">
-          <div class="container">22222222</div>
+            <textarea
+              class="form-control mt-5"
+              rows="8"
+              v-if="question.hasDescription == true"
+            ></textarea>
+          </div>
         </div>
       </tab-content>
     </form-wizard>
@@ -130,26 +101,53 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
+      selected_answer: "",
+
       name: "",
       weight: "",
       height: "",
+      phone: "",
+      answers: [],
+
+      questions: null,
     };
   },
 
   methods: {
-    selectedAnswer(e) {
-      // console.log(e.target.closest("label"));
-      e.target.closest("label").classList.add("selected_answer");
+    selectedAnswer(id) {
+      this.selected_answer = id;
 
-      // console.log(e.target.closest("label").parentElement.nextSiblings);
+      this.answers.push(id);
     },
+    // START:: AXIOS GET QUESTIONS
+    getQuestion() {
+      axios
+        .get("survey/another_questions", {
+          params: {
+            type: this.$route.params.type,
+          },
+        })
+        .then((res) => {
+          console.log(res.data);
+          this.questions = res.data;
+        });
+    },
+    // END:: AXIOS GET QUESTIONS
 
     submitWizard() {
       alert("Finisheeeeeed");
     },
+  },
+
+  mounted() {
+    // START:: AXIOS GET QUESTIONS
+    this.getQuestion();
+    // END:: AXIOS GET QUESTIONS
   },
 };
 </script>
