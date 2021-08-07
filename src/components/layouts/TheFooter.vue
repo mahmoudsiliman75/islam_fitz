@@ -9,9 +9,9 @@
     <div class="container-fluid">
       <div class="row justify-content-center">
         <div class="footer_logo col-6 col-md-2">
-          <a href="index.php">
+          <router-link to="/">
             <img src="../../assets/images/logo/logo.png" alt="Site Logo" />
-          </a>
+          </router-link>
         </div>
 
         <div

@@ -13,6 +13,9 @@ import "@fortawesome/fontawesome-free/js/all.js";
 import VueResource from "vue-resource";
 // ======== iziToast
 import iziToast from "izitoast";
+// ======== SWEET ALERT
+import VueSweetalert2 from "vue-sweetalert2";
+import "sweetalert2/dist/sweetalert2.min.css";
 // ======== Axios
 import axios from "axios";
 
@@ -45,6 +48,7 @@ import vuetify from "./plugins/vuetify";
 
 AOS.init();
 Vue.use(iziToast);
+Vue.use(VueSweetalert2);
 Vue.use(VueResource);
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
@@ -53,7 +57,7 @@ Vue.use(VueFormWizard);
 Vue.prototype.$iziToast = iziToast;
 
 // AXIOS BASE URL
-axios.defaults.baseURL = "http://143.244.179.162/v1/api/";
+axios.defaults.baseURL = "https://www.fitzonline.net/v1/api/";
 
 new Vue({
   router,

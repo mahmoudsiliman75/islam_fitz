@@ -1,5 +1,9 @@
 <template>
   <div class="faqs">
+    <!-- START:: LOADER -->
+    <Loader v-if="isLoading" />
+    <!-- END:: LOADER -->
+
     <div class="main_content_wraper">
       <div class="container">
         <div class="header_wraper">
@@ -48,23 +52,20 @@
 
 <script>
 import axios from "axios";
+import Loader from "../../ui/LoaderScreen.vue";
 
 export default {
   name: "Faqs",
 
+  components: {
+    Loader,
+  },
+
   data() {
     return {
-      text: `
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-        richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-        tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-        assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
-        wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-        vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
-        synth nesciunt you probably haven't heard of them accusamus labore VHS.
-      `,
-      faqs: null,
+      isLoading: true,
+
+      faqs: [],
     };
   },
 
@@ -72,6 +73,7 @@ export default {
     // START:: GET FAQS PAGE DATA
     getFaqsData() {
       axios.get("FAQ").then((res) => {
+        this.isLoading = false;
         this.faqs = res.data;
       });
     },

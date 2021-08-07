@@ -6,8 +6,9 @@
 .home_intro {
   padding-block: $paddingAmount;
   background-image: url("../images/shapes/header-sape4.png"), url("../images/shapes/9.png");
+  // background-image: url("../images/shapes2/1.png");
   background-position: center;
-  background-repeat: repeat;
+  background-repeat: no-repeat;
   background-size: cover;
   .title_wraper {
     @include flexStartAlignment;

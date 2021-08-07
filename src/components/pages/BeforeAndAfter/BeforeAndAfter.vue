@@ -15,207 +15,39 @@
           data-aos="zoom-in"
           data-aos-duration="1500"
         >
-          <div class="col-9 col-md-3 my-2">
+          <!-- START:: BEFORE AND AFTER CARD -->
+          <div
+            class="col-9 col-md-3 my-2"
+            v-for="element in pageData"
+            :key="element.id"
+          >
             <div class="card">
               <div class="image_wraper">
-                <img src="../../../assets/images/pics/beforeandafter.jpg" />
+                <img :src="element.image_url" />
               </div>
 
               <div class="card_body_wraper">
-                <h5>الإسم سيعرض هنا</h5>
+                <h5>{{ element.name }}</h5>
                 <div class="description">
-                  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
-                  أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار
-                  ماجنا أليكيوا
+                  {{ element.description }}
                 </div>
               </div>
             </div>
           </div>
+          <!-- END:: BEFORE AND AFTER CARD -->
 
-          <div class="col-9 col-md-3 my-2">
-            <div class="card">
-              <div class="image_wraper">
-                <img src="../../../assets/images/pics/beforeandafter.jpg" />
-              </div>
-
-              <div class="card_body_wraper">
-                <h5>الإسم سيعرض هنا</h5>
-                <div class="description">
-                  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
-                  أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار
-                  ماجنا أليكيوا
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-9 col-md-3 my-2">
-            <div class="card">
-              <div class="image_wraper">
-                <img src="../../../assets/images/pics/beforeandafter.jpg" />
-              </div>
-
-              <div class="card_body_wraper">
-                <h5>الإسم سيعرض هنا</h5>
-                <div class="description">
-                  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
-                  أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار
-                  ماجنا أليكيوا
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-9 col-md-3 my-2">
-            <div class="card">
-              <div class="image_wraper">
-                <img src="../../../assets/images/pics/beforeandafter.jpg" />
-              </div>
-
-              <div class="card_body_wraper">
-                <h5>الإسم سيعرض هنا</h5>
-                <div class="description">
-                  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
-                  أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار
-                  ماجنا أليكيوا
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-9 col-md-3 my-2">
-            <div class="card">
-              <div class="image_wraper">
-                <img src="../../../assets/images/pics/beforeandafter.jpg" />
-              </div>
-
-              <div class="card_body_wraper">
-                <h5>الإسم سيعرض هنا</h5>
-                <div class="description">
-                  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
-                  أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار
-                  ماجنا أليكيوا
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-9 col-md-3 my-2">
-            <div class="card">
-              <div class="image_wraper">
-                <img src="../../../assets/images/pics/beforeandafter.jpg" />
-              </div>
-
-              <div class="card_body_wraper">
-                <h5>الإسم سيعرض هنا</h5>
-                <div class="description">
-                  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
-                  أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار
-                  ماجنا أليكيوا
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-9 col-md-3 my-2">
-            <div class="card">
-              <div class="image_wraper">
-                <img src="../../../assets/images/pics/beforeandafter.jpg" />
-              </div>
-
-              <div class="card_body_wraper">
-                <h5>الإسم سيعرض هنا</h5>
-                <div class="description">
-                  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
-                  أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار
-                  ماجنا أليكيوا
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-9 col-md-3 my-2">
-            <div class="card">
-              <div class="image_wraper">
-                <img src="../../../assets/images/pics/beforeandafter.jpg" />
-              </div>
-
-              <div class="card_body_wraper">
-                <h5>الإسم سيعرض هنا</h5>
-                <div class="description">
-                  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
-                  أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار
-                  ماجنا أليكيوا
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-9 col-md-3 my-2">
-            <div class="card">
-              <div class="image_wraper">
-                <img src="../../../assets/images/pics/beforeandafter.jpg" />
-              </div>
-
-              <div class="card_body_wraper">
-                <h5>الإسم سيعرض هنا</h5>
-                <div class="description">
-                  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
-                  أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار
-                  ماجنا أليكيوا
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-9 col-md-3 my-2">
-            <div class="card">
-              <div class="image_wraper">
-                <img src="../../../assets/images/pics/beforeandafter.jpg" />
-              </div>
-
-              <div class="card_body_wraper">
-                <h5>الإسم سيعرض هنا</h5>
-                <div class="description">
-                  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
-                  أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار
-                  ماجنا أليكيوا
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-9 col-md-3 my-2">
-            <div class="card">
-              <div class="image_wraper">
-                <img src="../../../assets/images/pics/beforeandafter.jpg" />
-              </div>
-
-              <div class="card_body_wraper">
-                <h5>الإسم سيعرض هنا</h5>
-                <div class="description">
-                  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
-                  أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار
-                  ماجنا أليكيوا
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-9 col-md-3 my-2">
-            <div class="card">
-              <div class="image_wraper">
-                <img src="../../../assets/images/pics/beforeandafter.jpg" />
-              </div>
-
-              <div class="card_body_wraper">
-                <h5>الإسم سيعرض هنا</h5>
-                <div class="description">
-                  لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
-                  أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار
-                  ماجنا أليكيوا
-                </div>
-              </div>
+          <div class="col-12">
+            <div class="pagenation" v-if="last_page == 1">
+              <ul>
+                <li
+                  v-for="index in last_page"
+                  :class="index === currentPage ? 'active' : ''"
+                  :key="index"
+                  @click="indexNumber(index)"
+                >
+                  {{ index }}
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -225,6 +57,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import Loader from "../../ui/LoaderScreen.vue";
 
 export default {
@@ -237,6 +70,12 @@ export default {
   data() {
     return {
       isLoading: true,
+
+      pageData: [],
+
+      last_page: "",
+      currentPage: "",
+      pageNum: "",
     };
   },
 
@@ -249,11 +88,69 @@ export default {
         target.style.backgroundPosition = moveX + "px " + moveY + "px";
       });
     },
+
+    getAllData() {
+      axios.get("before_after").then((res) => {
+        this.isLoading = false;
+        this.pageData = res.data.BeforeAndAfter;
+      });
+    },
+
+    indexNumber(pageNumber) {
+      if (this.currentPage !== pageNumber) {
+        this.currentPage = pageNumber;
+      }
+    },
   },
 
   mounted() {
-    this.isLoading = false;
+    this.isLoading = true;
     this.controleBackGround();
+    this.getAllData();
   },
 };
 </script>
+
+<style>
+.pagenation {
+  margin: auto;
+}
+
+.pagenation ul {
+  padding: 0;
+  text-align: center;
+  direction: ltr;
+  margin-bottom: 30px;
+}
+
+.pagenation li {
+  display: inline-flex;
+  margin: 0 5px;
+  width: 35px;
+  height: 35px;
+  background: #1c7834;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  border-radius: 50px;
+  font-size: 15px;
+  border: 1px solid #1c7834;
+  cursor: pointer;
+  transition: 0.5s;
+  opacity: 0.4;
+  line-height: 0;
+}
+
+.pagenation li.active {
+  background: #1c7834;
+  color: #fff;
+  opacity: 1;
+}
+
+.pagenation li:hover {
+  background: #1c7834;
+  color: #fff;
+  transition: 0.5s;
+  opacity: 1;
+}
+</style>

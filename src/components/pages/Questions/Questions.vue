@@ -15,7 +15,7 @@
                   color="success"
                   label="اللإسم"
                   prepend-icon="mdi-account"
-                  v-model="name"
+                  v-model.trim="userData.name"
                 >
                 </v-text-field>
               </div>
@@ -25,7 +25,7 @@
                   color="success"
                   label="رقم الهاتف"
                   prepend-icon="mdi-phone"
-                  v-model="phone"
+                  v-model.trim="userData.phone"
                 >
                 </v-text-field>
               </div>
@@ -35,7 +35,7 @@
                   color="success"
                   label="الوزن (بالكيلو)"
                   prepend-icon="mdi-scale"
-                  v-model="weight"
+                  v-model.trim="userData.weight"
                 >
                 </v-text-field>
               </div>
@@ -45,7 +45,7 @@
                   color="success"
                   label="الطول (بالسنتيمتر)"
                   prepend-icon="mdi-ruler"
-                  v-model="height"
+                  v-model.trim="userData.length"
                 >
                 </v-text-field>
               </div>
@@ -77,8 +77,8 @@
                     type="radio"
                     :value="answer.answer.id"
                     name="answer"
-                    :id="answer.id"
-                    @change="selectedAnswer(answer.id)"
+                    :id="answer.answer.id"
+                    @change="selectedAnswer(answer.answer.id)"
                   />
                   <img
                     :src="answer.answer.answer"
@@ -91,6 +91,7 @@
             <textarea
               class="form-control mt-5"
               rows="8"
+              v-model="userData.description"
               v-if="question.hasDescription == true"
             ></textarea>
           </div>
@@ -108,11 +109,15 @@ export default {
     return {
       selected_answer: "",
 
-      name: "",
-      weight: "",
-      height: "",
-      phone: "",
-      answers: [],
+      userData: {
+        type: this.$route.params.type,
+        name: "",
+        phone: "",
+        length: "",
+        weight: "",
+        answer: [],
+        description: "",
+      },
 
       questions: null,
     };
@@ -121,8 +126,7 @@ export default {
   methods: {
     selectedAnswer(id) {
       this.selected_answer = id;
-
-      this.answers.push(id);
+      this.userData.answer.push(id);
     },
     // START:: AXIOS GET QUESTIONS
     getQuestion() {
@@ -140,7 +144,73 @@ export default {
     // END:: AXIOS GET QUESTIONS
 
     submitWizard() {
-      alert("Finisheeeeeed");
+      if (this.userData.name.length == 0 || this.userData.name == null) {
+        this.$swal.fire({
+          position: "top-start",
+          icon: "error",
+          text: "حقل الإسم لايمكن ان يكون فارغ",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        return;
+      }
+
+      if (this.userData.phone.length == 0 || this.userData.phone == null) {
+        this.$swal.fire({
+          position: "top-start",
+          icon: "error",
+          text: "حقل الإسم لايمكن ان يكون فارغ",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        return;
+      }
+
+      if (this.userData.weight.length == 0 || this.userData.weight == null) {
+        this.$swal.fire({
+          position: "top-start",
+          icon: "error",
+          text: "حقل الوزن لايمكن ان يكون فارغ",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        return;
+      }
+
+      if (this.userData.length.length == 0 || this.userData.length == null) {
+        this.$swal.fire({
+          position: "top-start",
+          icon: "error",
+          text: "حقل الطول لايمكن ان يكون فارغ",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        return;
+      }
+
+      if (this.userData.answer.length == 0 || this.userData.answer == null) {
+        this.$swal.fire({
+          position: "top-start",
+          icon: "error",
+          text: "يجب الإجابة على جميع الأسئلة",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        return;
+      }
+
+      axios
+        .post("survey/client/answer/create", this.userData, {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+          },
+        })
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
   },
 

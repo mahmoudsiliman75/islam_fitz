@@ -49,11 +49,10 @@ export default {
   methods: {
     // START:: GET ABOUT US PAGE DATA
     getAboutData() {
-      this.isLoading = true;
       axios.get("about").then((res) => {
         setTimeout(() => {
           this.isLoading = false;
-        }, 1000);
+        }, 500);
         this.aboutData = res.data[0];
       });
     },

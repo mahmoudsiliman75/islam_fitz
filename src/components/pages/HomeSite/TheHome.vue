@@ -52,10 +52,10 @@ export default {
   methods: {
     // START:: GET HOME PAGE DATA
     getHomeData() {
-      (this.isLoading = false),
-        axios.get("home").then((res) => {
-          (this.isLoading = false), (this.data = res.data[0]);
-        });
+      axios.get("home").then((res) => {
+        this.isLoading = false;
+        this.data = res.data[0];
+      });
     },
     // END:: GET HOME PAGE DATA
   },

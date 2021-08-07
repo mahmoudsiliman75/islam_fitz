@@ -50,7 +50,9 @@ export default {
   },
 
   mounted() {
-    this.controleBackGround();
+    setTimeout(() => {
+      this.controleBackGround();
+    }, 1000);
   },
 };
 </script>
