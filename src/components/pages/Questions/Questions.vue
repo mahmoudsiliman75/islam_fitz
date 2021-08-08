@@ -1,5 +1,9 @@
 <template>
   <div class="questions">
+    <!-- START:: LOADER -->
+    <Loader v-if="isLoading" />
+    <!-- END:: LOADER -->
+
     <form-wizard
       nextButtonText="التالى"
       backButtonText="رجوع"
@@ -69,10 +73,12 @@
             <ul class="answers_list">
               <li
                 v-for="answer in question.answer"
-                :key="answer.id"
-                :class="selected_answer == answer.id ? 'selected_answer' : ''"
+                :key="answer.answer.id"
+                :class="
+                  selected_answer == answer.answer.id ? 'selected_answer' : ''
+                "
               >
-                <label :for="answer.id">
+                <label :for="answer.answer.id">
                   <input
                     type="radio"
                     :value="answer.answer.id"
@@ -103,10 +109,17 @@
 
 <script>
 import axios from "axios";
+import Loader from "../../ui/LoaderScreen.vue";
 
 export default {
+  components: {
+    Loader,
+  },
+
   data() {
     return {
+      isLoading: true,
+
       selected_answer: "",
 
       userData: {
@@ -137,7 +150,7 @@ export default {
           },
         })
         .then((res) => {
-          console.log(res.data);
+          this.isLoading = false;
           this.questions = res.data;
         });
     },
@@ -152,6 +165,7 @@ export default {
           showConfirmButton: false,
           timer: 2000,
         });
+        new Audio(require("../../../assets/sounds/error.mp3")).play();
         return;
       }
 
@@ -159,7 +173,7 @@ export default {
         this.$swal.fire({
           position: "top-start",
           icon: "error",
-          text: "حقل الإسم لايمكن ان يكون فارغ",
+          text: "حقل الهاتف لايمكن ان يكون فارغ",
           showConfirmButton: false,
           timer: 2000,
         });
@@ -200,17 +214,9 @@ export default {
       }
 
       axios
-        .post("survey/client/answer/create", this.userData, {
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-          },
-        })
-        .then((res) => {
-          console.log(res.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+        .post("survey/client/answer/create", this.userData)
+        .then((res) => console.log(res.data))
+        .catch((error) => console.log(error));
     },
   },
 

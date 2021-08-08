@@ -30,7 +30,7 @@
     a, 
     button {
       @include btnHoverEffect;
-      font-size: 15x;
+      font-size: 15px;
       width: 40%;
       margin-inline-end: 20px;
       text-align: center;
@@ -166,17 +166,10 @@
     a, 
     button {
       @include btnHoverEffect;
-      font-size: 15x;
+      font-size: 15px;
       width: 25%;
       margin-inline-end: 20px;
       text-align: center;
-    }
-
-    @media ( max-width: 700px ) {
-      a, 
-      button {
-        width: 50%;
-      }
     }
   }
 }

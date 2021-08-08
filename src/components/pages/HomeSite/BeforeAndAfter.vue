@@ -169,11 +169,11 @@ export default {
 
   methods: {
     controleBackGround() {
-      const target2 = document.querySelector("#before_after");
-      target2.addEventListener("mousemove", (e) => {
+      const target = document.querySelector("#before_after");
+      target.addEventListener("mousemove", (e) => {
         let moveX = -e.pageX / 20;
         let moveY = -e.pageY / 20;
-        target2.style.backgroundPosition = moveX + "px " + moveY + "px";
+        target.style.backgroundPosition = moveX + "px " + moveY + "px";
       });
     },
 

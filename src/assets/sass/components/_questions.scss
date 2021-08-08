@@ -45,6 +45,7 @@
       li {
         &.selected_answer {
           img {
+            padding: 2px;
             border: 2px solid $mainColor;
           }
         }

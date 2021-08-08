@@ -11,16 +11,6 @@ const routes = [
       import(
         /* webpackChunkName: "home" */ "../components/pages/HomeSite/TheHome.vue"
       ),
-    // children: [
-    //   {
-    //     path: "/",
-    //     name: "landing",
-    //     component: () =>
-    //       import(
-    //         /* webpackChunkName: "LandingPage" */ "../pages/HomeSite/LandingPage.vue"
-    //       ),
-    //   },
-    // ],
   },
   {
     path: "/about",
