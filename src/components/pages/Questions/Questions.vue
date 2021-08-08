@@ -122,6 +122,8 @@ export default {
 
       selected_answer: "",
 
+      questionsCount: 0,
+
       userData: {
         type: this.$route.params.type,
         name: "",
@@ -152,6 +154,7 @@ export default {
         .then((res) => {
           this.isLoading = false;
           this.questions = res.data;
+          this.questionsCount = res.data.length;
         });
     },
     // END:: AXIOS GET QUESTIONS
@@ -177,6 +180,7 @@ export default {
           showConfirmButton: false,
           timer: 2000,
         });
+        new Audio(require("../../../assets/sounds/error.mp3")).play();
         return;
       }
 
@@ -188,6 +192,7 @@ export default {
           showConfirmButton: false,
           timer: 2000,
         });
+        new Audio(require("../../../assets/sounds/error.mp3")).play();
         return;
       }
 
@@ -199,10 +204,15 @@ export default {
           showConfirmButton: false,
           timer: 2000,
         });
+        new Audio(require("../../../assets/sounds/error.mp3")).play();
         return;
       }
 
-      if (this.userData.answer.length == 0 || this.userData.answer == null) {
+      if (
+        this.userData.answer.length == 0 ||
+        this.userData.answer.length != this.questionsCount ||
+        this.userData.answer == null
+      ) {
         this.$swal.fire({
           position: "top-start",
           icon: "error",
@@ -210,13 +220,36 @@ export default {
           showConfirmButton: false,
           timer: 2000,
         });
+        new Audio(require("../../../assets/sounds/error.mp3")).play();
         return;
       }
 
+      this.isLoading = true;
+
       axios
         .post("survey/client/answer/create", this.userData)
-        .then((res) => console.log(res.data))
-        .catch((error) => console.log(error));
+        .then((res) => {
+          if (res.statusText == "Created") {
+            new Audio(require("../../../assets/sounds/done.mp3")).play();
+
+            this.$swal.fire({
+              position: "top-start",
+              icon: "success",
+              text: "تم إرسال الإجابات وجارى تحليلها.....",
+              showConfirmButton: false,
+              timer: 2000,
+            });
+
+            setTimeout(() => {
+              this.isLoading = false;
+              this.$router.replace("/survey_result");
+            }, 2000);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          this.isLoading = false;
+        });
     },
   },
 

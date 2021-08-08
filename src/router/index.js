@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
+import SurveyResult from "../components/pages/SurveyResult/SurveyResult.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -43,6 +44,11 @@ const routes = [
       import(
         /* webpackChunkName: "home" */ "../components/pages/Faqs/Faqs.vue"
       ),
+  },
+  {
+    path: "/survey_result",
+    name: "SurveyResult",
+    component: SurveyResult,
   },
 ];
 
