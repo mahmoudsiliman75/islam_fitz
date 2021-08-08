@@ -15,11 +15,78 @@ header {
   }
 
   .menu_wraper {
+    .small_screens_menu_open {
+      display: none;
+      svg {
+        color: $mainColor;
+        @include transitioning(0.3s);
+        &:hover {
+          color: $secondaryColor;
+        }
+      }
+    }
+
     ul {
       list-style: none;
       @include flexSpaceBetweenAlignment;
       li {
         @include menuHoverEffect;
+      }
+    }
+  }
+
+  .small_screens_menu_wraper {
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    min-height: 100vh;
+    background-color:$white;
+    @include transitioning(0.4s);
+    @include midShadow;
+    z-index: 10;
+
+    &.open {
+      left: 0;
+    }
+
+    .small_screens_menu_close {
+      svg {
+        color: $mainColor;
+        @include transitioning(0.3s);
+        &:hover {
+          color: $midRed;
+        }
+      }
+    }
+
+    ul {
+      margin-top: 40px;
+      .nav_item {
+        text-align: center;
+        margin-block: 20px;
+        a {
+          color: $mainColor;
+          font-size: 1.4rem;
+          @include transitioning(0.3s);
+          &:hover,
+          &.router-link-exact-active {
+            color: $secondaryColor;
+          }
+        }
+      }
+    }
+  }
+
+  @media ( max-width: 767px ) {
+    .menu_wraper {
+      .small_screens_menu_open {
+        display: block;
+      }
+
+      ul {
+        display: none;
       }
     }
   }
