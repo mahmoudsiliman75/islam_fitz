@@ -10,6 +10,7 @@
     "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/undefined/**/*.json\""
   },
   "dependencies": {
+    "@algoz098/vue-player": "^0.4.3",
     "@braid/vue-formulate": "^2.5.2",
     "@fortawesome/fontawesome-free": "^5.15.3",
     "@popperjs/core": "^2.9.2",

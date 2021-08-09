@@ -7,14 +7,9 @@
     <!-- START:: SURVEY RESULT CONTENT -->
     <div class="container">
       <div class="video_wraper">
-        <iframe
-          :src="surveyResultData.video_url"
-          title="Survey Result Video"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        >
-        </iframe>
+        <video controls autoplay>
+          <source :src="surveyResultData.video_url" type="video/mp4" />
+        </video>
       </div>
 
       <div class="text_wraper">
