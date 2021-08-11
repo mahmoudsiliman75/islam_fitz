@@ -57,7 +57,7 @@ Vue.use(VueFormWizard);
 Vue.prototype.$iziToast = iziToast;
 
 // AXIOS BASE URL
-axios.defaults.baseURL = "https://www.fitzonline.net/v1/api/";
+axios.defaults.baseURL = "https://dash-board.fitzonline.net/v1/api/";
 
 new Vue({
   router,

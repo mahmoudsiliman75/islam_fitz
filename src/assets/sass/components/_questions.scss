@@ -90,6 +90,11 @@
     }
     .wizard-navigation {
       .wizard-progress-with-circle {
+        height: 8px !important;
+        border: 1px solid $mainColor;
+        @include borderRadius(25px);
+        @include simpleShadow;
+        overflow: hidden;
         .wizard-progress-bar {
           background-color: $mainColor !important;
           color: $mainColor !important;
@@ -99,33 +104,13 @@
       .wizard-nav {
         li {
           margin-bottom: 20px;
-          &.active {
-            .wizard-icon-circle {
-              &.checked {
-                border-color: $mainColor !important;
-                background-color: $mainColor !important;
-                .wizard-icon-container {
-                  @include flexCenterAlignment;
-                }
-              }
-            }
-            .stepTitle {
-              color: $mainColor !important;
-            }
+          .stepTitle {
+            display: none !important;
           }
 
           
           .wizard-icon-circle {
-            &.checked {
-              border-color: $mainColor !important;
-              color: $mainColor !important;
-              .wizard-icon-container {
-                @include flexCenterAlignment;
-                background-color: $mainColor !important;
-              }
-            }
-
-            @include flexCenterAlignment;
+            display: none !important;
           }
         }
       }
