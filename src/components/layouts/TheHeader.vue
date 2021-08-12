@@ -44,23 +44,33 @@
 
       <ul>
         <li class="nav_item">
-          <router-link to="/"> الرئيسية </router-link>
+          <button class="btn" type="button" @click="closeSmallMenu">
+            <router-link to="/"> الرئيسية </router-link>
+          </button>
         </li>
 
         <li class="nav_item">
-          <router-link to="/about"> من نحن </router-link>
+          <button class="btn" type="button" @click="closeSmallMenu">
+            <router-link to="/about"> من نحن </router-link>
+          </button>
         </li>
 
         <li class="nav_item">
-          <router-link to="/before_and_after"> قبل و بعد </router-link>
+          <button class="btn" type="button" @click="closeSmallMenu">
+            <router-link to="/before_and_after"> قبل و بعد </router-link>
+          </button>
         </li>
 
         <li class="nav_item">
-          <router-link to="/faqs"> الأسئلة الشائعة </router-link>
+          <button class="btn" type="button" @click="closeSmallMenu">
+            <router-link to="/faqs"> الأسئلة الشائعة </router-link>
+          </button>
         </li>
 
         <li class="nav_item">
-          <a href="#"> المدونة </a>
+          <button class="btn" type="button" @click="closeSmallMenu">
+            <a href="#"> المدونة </a>
+          </button>
         </li>
       </ul>
     </div>

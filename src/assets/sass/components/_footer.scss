@@ -24,7 +24,7 @@ footer {
   .short_cuts {
     padding-bottom: 15px;
     display: flex;
-    flex-direction: row;
+
     a {
       text-decoration: none;
       color: $white;
@@ -35,6 +35,7 @@ footer {
       }
     }
   }
+
 
   .get_in_touch {
     padding-bottom: 15px;
@@ -102,6 +103,37 @@ footer {
         }
         &:hover {
           transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  @media( max-width: 767px ) {
+    .footer_logo {
+      margin-bottom: 20px;
+      img[alt="Site Logo"] {
+        width: 120px;
+        height: 60px;
+      }
+    }
+
+    .short_cuts {
+      display: none !important;
+    }
+
+    .get_in_touch {
+      font-size: 15px;
+    }
+
+    .follow_us {
+      ul {
+        li {
+          a {
+            img {
+              width: 35px;
+              height: 35px;
+            }
+          }
         }
       }
     }

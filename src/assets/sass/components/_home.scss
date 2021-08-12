@@ -4,32 +4,60 @@
 
 // START:: HOME INTRO STYLES
 .home_intro {
+  position: relative;
   padding-block: $paddingAmount;
   background-image: url("../images/shapes/header-sape4.png"), url("../images/shapes/9.png");
-  // background-image: url("../images/shapes2/1.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  .outer_wraper {
+    &:first-child {
+      z-index: 2 !important;
+    }
+    &:last-child {
+      z-index: 1 !important;
+    }
+  }
+
+  .title_img_wraper {
+    @include flexCenterAlignment;
+    img {
+      width: 230px;
+      height: 260px;
+    }
+  }
+
   .title_wraper {
-    @include flexStartAlignment;
+    @include flexCenterAlignment;
     h1 {
+      width: 80%;
+      padding-block: 20px;
       background: linear-gradient(to right, $secondaryColor, $mainColor);
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      font-weight: 600;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 900;
     }
   }
 
   .intro_text_wraper {
     @include textWraper;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 900;
   }
 
   .btns_wraper {
-    @include flexStartAlignment;
+    width: 50%;   
+    @include flexSpaceBetweenAlignment;
     margin-block: 25px;
+    .text-box {
+      @include btnHoverEffect;
+    }
     a, 
     button {
-      @include btnHoverEffect;
       font-size: 15px;
       width: 40%;
       margin-inline-end: 20px;
@@ -41,6 +69,42 @@
     img {
       width: 360px;
       height: 515px;
+    }
+  }
+
+
+  @media ( max-width: 767px ) {
+    .title_img_wraper {
+      position: absolute;
+      left: 3%;
+      top: -190%;
+      z-index: 3;
+      img {
+        width: 190px;
+        height: 220px;
+      }
+    }
+
+    .title_wraper {
+      h1 {
+        width: 100%;
+        font-size: 17px;
+        margin-bottom: 0;
+        padding-block: 10px;
+      }
+    }
+
+    .intro_text_wraper {
+      font-weight: 900;
+      font-size: 20px;
+    }
+
+    .img_wraper {
+      text-align: start;
+      img {    
+        width: 210px;
+        height: 420px;
+      }
     }
   }
 }
@@ -93,22 +157,48 @@
   }
 
   .btn_wraper {
+    width: 50%;   
     @include flexCenterAlignment;
     margin-block: 25px;
-    a, 
-    button {
+    .text-box {
       @include btnHoverEffect;
-      border: 2px solid $white;
-      color: $white;
-      font-size: 15x;
-      width: 40%;
-      margin-inline-end: 20px;
-      text-align: center;
-      &::before {
+      .btn-white {
+        background-color: $white;
+        color: $secondaryColor;
+      }
+      .btn-white::after {
         background-color: $white;
       }
-      &:hover {
-        color: $mainColor;
+    }
+    a, 
+    button {
+      font-size: 15px;
+      width: 30%;
+      text-align: center;
+    }
+  }
+
+  @media ( max-width: 767px ) {
+    .img_wraper {
+      img {
+        width: 200px;
+        height: 410px;
+      }
+    }
+
+    .text_wraper {
+      font-size: 16px;
+      text-align: justify;
+    }
+
+    .btn_wraper {
+      width: 100%;
+      a, 
+      button {
+        width: 60%;
+        padding: 8px 20px;
+        left: 50%;
+        transform: translateX(-50%);
       }
     }
   }
@@ -161,15 +251,29 @@
   }
 
   .btn_wraper {
+    width: 100%;   
     @include flexCenterAlignment;
     margin-block: 25px;
+    .text-box {
+      @include btnHoverEffect;
+    }
     a, 
     button {
-      @include btnHoverEffect;
       font-size: 15px;
-      width: 25%;
-      margin-inline-end: 20px;
+      width: 20%;
       text-align: center;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  @media ( max-width: 767px ) {
+    .btn_wraper {
+      a, 
+      button {
+        width: 50%;
+        padding: 8px 20px;
+      }
     }
   }
 }

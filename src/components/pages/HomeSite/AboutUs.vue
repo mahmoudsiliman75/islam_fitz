@@ -33,7 +33,11 @@
           </div>
 
           <div class="btn_wraper">
-            <router-link to="/about"> إعرض المزيد </router-link>
+            <div class="text-box">
+              <router-link to="/about" class="btn btn-white btn-animate">
+                إعرض المزيد
+              </router-link>
+            </div>
           </div>
         </div>
       </div>

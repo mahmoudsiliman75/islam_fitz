@@ -18,7 +18,6 @@
           class="
             short_cuts
             col-12 col-md-4
-            d-flex
             justify-content-between justify-content-md-center
           "
         >

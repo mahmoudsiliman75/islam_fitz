@@ -3,10 +3,16 @@
     <div class="container">
       <div class="row justify-content-between align-items-center target">
         <div
-          class="col-12 col-md-7 order-2 order-md-1 my-3 my-md-0"
+          class="outer_wraper col-12 col-md-7 order-2 order-md-1 my-3 my-md-0"
           data-aos="fade-right"
           data-aos-duration="2000"
         >
+          <div class="title_img_wraper">
+            <img
+              src="https://d18bl4bud716l6.cloudfront.net/survey/img/step-into-greatness-stacked-narrow@2x.png"
+            />
+          </div>
+
           <div class="title_wraper">
             <h1>{{ data.intro_title }}</h1>
           </div>
@@ -15,13 +21,24 @@
           </div>
 
           <div class="btns_wraper">
-            <router-link to="/questions/Man">ذكر</router-link>
-            <router-link to="/questions/Woman">انثي</router-link>
+            <div class="text-box">
+              <router-link to="/questions/Man" class="btn btn-white btn-animate"
+                >ذكر</router-link
+              >
+            </div>
+
+            <div class="text-box">
+              <router-link
+                to="/questions/Woman"
+                class="btn btn-white btn-animate"
+                >انثي</router-link
+              >
+            </div>
           </div>
         </div>
 
         <div
-          class="col-12 col-md-4 text-center order-1 order-md-2"
+          class="outer_wraper col-12 col-md-4 text-center order-1 order-md-2"
           data-aos="fade-left"
           data-aos-duration="2000"
         >

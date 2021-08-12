@@ -13,7 +13,7 @@
         <div class="accordion" id="faqs_accordion">
           <div class="row justify-content-center">
             <div
-              class="col-12 col-md-6"
+              class="col-12 col-md-6 my-3"
               v-for="(faq, index) in faqs"
               :key="faq.id"
             >
@@ -24,7 +24,7 @@
                     type="button"
                     data-bs-toggle="collapse"
                     :data-bs-target="'#collapse' + faq.id"
-                    aria-expanded="true"
+                    :aria-expanded="index == 0 ? 'true' : ''"
                     :aria-controls="'collapse' + faq.id"
                   >
                     {{ faq.question }}

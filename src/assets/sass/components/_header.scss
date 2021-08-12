@@ -44,7 +44,6 @@ header {
     min-height: 100vh;
     background-color:$white;
     @include transitioning(0.4s);
-    @include midShadow;
     z-index: 10;
 
     &.open {
