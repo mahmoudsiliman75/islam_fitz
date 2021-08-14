@@ -112,8 +112,8 @@ footer {
     .footer_logo {
       margin-bottom: 20px;
       img[alt="Site Logo"] {
-        width: 120px;
-        height: 60px;
+        width: 110px;
+        height: 50px;
       }
     }
 
@@ -122,16 +122,32 @@ footer {
     }
 
     .get_in_touch {
-      font-size: 15px;
+      font-size: 0.7rem;
+      h5 {
+        font-size: 1rem;
+      }
+      ul {
+        @include flexStartAlignment;
+        flex-wrap: wrap;
+        li {
+          &:nth-child(2) {
+            padding-inline-start: 25px;
+          }
+        }
+      }
     }
 
     .follow_us {
+      h5 {
+        display: none;
+      }
       ul {
         li {
+          margin-inline: 20px;
           a {
             img {
-              width: 35px;
-              height: 35px;
+              width: 25px;
+              height: 25px;
             }
           }
         }

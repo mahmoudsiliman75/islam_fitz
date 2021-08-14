@@ -4,8 +4,6 @@
       <div class="row justify-content-between align-items-center target">
         <div
           class="outer_wraper col-12 col-md-7 order-2 order-md-1 my-3 my-md-0"
-          data-aos="fade-right"
-          data-aos-duration="2000"
         >
           <div class="title_img_wraper">
             <img
@@ -39,8 +37,6 @@
 
         <div
           class="outer_wraper col-12 col-md-4 text-center order-1 order-md-2"
-          data-aos="fade-left"
-          data-aos-duration="2000"
         >
           <div class="img_wraper">
             <img :src="data.intro_image_url" alt="Intro Image" />

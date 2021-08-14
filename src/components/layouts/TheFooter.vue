@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer v-if="footerData">
     <!-- START:: FOOTERT UPPER SHAPE -->
     <div class="lower_shape_wraper">
       <Scratch />
@@ -52,24 +52,30 @@
           <h5 class="my-3 d-flex">تواصل معنا</h5>
 
           <ul class="list-unstyled p-0">
-            <li class="d-flex align-items-center">
+            <li class="d-flex align-items-center" v-if="footerData.address">
               <i class="fas fa-map-marker-alt mx-1"></i>
-              <span> العنوان سيعرض هنا </span>
+              <span> {{ footerData.address }} </span>
             </li>
 
-            <li class="d-flex align-items-center">
+            <li class="d-flex align-items-center" v-if="footerData.email">
               <i class="fas fa-envelope mx-1"></i>
               <span>
-                <a href="mailto: info@islamFitz.com"> info@islamFitz.com </a>
+                <a :href="'mailto:' + footerData.email">
+                  {{ footerData.email }}
+                </a>
               </span>
             </li>
 
             <li class="d-flex align-items-center">
               <i class="fas fa-mobile-alt mx-1"></i>
               <span>
-                <a href="tele:01000000001">01000000001 </a>
+                <a :href="'tele:' + footerData.first_phone_number">
+                  {{ footerData.first_phone_number }}
+                </a>
                 -
-                <a href="tele:01000000002">01000000002 </a>
+                <a :href="'tele:' + footerData.second_phone_number">
+                  {{ footerData.second_phone_number }}
+                </a>
               </span>
             </li>
           </ul>
@@ -78,8 +84,8 @@
         <div class="follow_us col-12 col-md-3">
           <h5 class="text-center my-3">تابعنا على</h5>
           <ul class="list-unstyled">
-            <li>
-              <a href="#" class="facebook" target="_blanck">
+            <li v-if="footerData.facebook">
+              <a :href="footerData.facebook" class="facebook" target="_blanck">
                 <img
                   src="../../assets/images/icons/social/facebook.png"
                   alt="Facebook"
@@ -87,8 +93,12 @@
               </a>
             </li>
 
-            <li>
-              <a href="#" class="instagram" target="_blanck">
+            <li v-if="footerData.instagram">
+              <a
+                :href="footerData.instagram"
+                class="instagram"
+                target="_blanck"
+              >
                 <img
                   src="../../assets/images/icons/social/instagram.png"
                   alt="Instagram"
@@ -96,8 +106,8 @@
               </a>
             </li>
 
-            <li>
-              <a href="#" class="youtube" target="_blanck">
+            <li v-if="footerData.youtube">
+              <a :href="footerData.youtube" class="youtube" target="_blanck">
                 <img
                   src="../../assets/images/icons/social/youtube.png"
                   alt="youtube"
@@ -105,8 +115,8 @@
               </a>
             </li>
 
-            <li>
-              <a href="#" class="twitter" target="_blanck">
+            <li v-if="footerData.twitter">
+              <a :href="footerData.twitter" class="twitter" target="_blanck">
                 <img
                   src="../../assets/images/icons/social/twitter.png"
                   alt="Twitter"
@@ -126,12 +136,36 @@
 
 <script>
 import Scratch from "../ui/ScratchShape.vue";
+import axios from "axios";
 
 export default {
   name: "Footer",
 
   components: {
     Scratch,
+  },
+
+  data() {
+    return {
+      footerData: null,
+    };
+  },
+
+  methods: {
+    // START:: GET FOOTER DATA
+    getFooterData() {
+      axios.get("footer").then((res) => {
+        console.log(res.data[0]);
+        this.footerData = res.data[0];
+      });
+    },
+    // END:: GET FOOTER DATA
+  },
+
+  mounted() {
+    // START:: GET FOOTER DATA
+    this.getFooterData();
+    // END:: GET FOOTER DATA
   },
 };
 </script>

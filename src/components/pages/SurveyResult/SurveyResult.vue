@@ -7,8 +7,9 @@
     <!-- START:: SURVEY RESULT CONTENT -->
     <div class="container">
       <div class="video_wraper">
-        <video controls autoplay>
+        <video controls autoplay v-if="surveyResultData.video_url">
           <source :src="surveyResultData.video_url" type="video/mp4" />
+          <source :src="surveyResultData.video_url" type="video/mkv" />
         </video>
       </div>
 
@@ -23,6 +24,7 @@
       class="whats_btn"
       :href="'https://wa.me/' + surveyResultData.whatsapp_number"
     >
+      <span> تواصل مع الكابتن </span>
       <img
         src="../../../assets/images/icons/social/whatsapp.png"
         alt="Whats App"
@@ -57,6 +59,8 @@ export default {
         .then((res) => {
           this.isLoading = false;
           this.surveyResultData = res.data[0];
+          this.test_video = res.data[0].video_url;
+          console.log(res.data[0].video_url);
         })
         .catch((error) => {
           console.log(error.data);

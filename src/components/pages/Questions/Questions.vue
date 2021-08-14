@@ -5,6 +5,9 @@
     <!-- END:: LOADER -->
 
     <div class="container">
+      <h3 class="questions_main_title">
+        إختار بالضبط ما هو النظام الغذائي والتدريب الأفضل بالنسبة لك
+      </h3>
       <form-wizard
         nextButtonText="التالى"
         backButtonText="رجوع"
@@ -13,45 +16,70 @@
       >
         <tab-content title=" البيانات الأساسية " icon="far fa-edit">
           <div class="questions_content_wraper">
-            <div class="row">
-              <div class="col-12 col-md-6 my-3 px-5">
-                <v-text-field
-                  color="success"
-                  label="اللإسم"
-                  prepend-icon="mdi-account"
-                  v-model.trim="userData.name"
-                >
-                </v-text-field>
-              </div>
+            <div class="row justify-content-center align-items-center">
+              <div class="col-12 col-md-6">
+                <div class="wraper my-5">
+                  <v-text-field
+                    color="success"
+                    label="اللإسم"
+                    prepend-icon="mdi-account"
+                    v-model.trim="userData.name"
+                  >
+                  </v-text-field>
+                </div>
 
-              <div class="col-12 col-md-6 my-3 px-5">
-                <v-text-field
-                  color="success"
-                  label="رقم الهاتف"
-                  prepend-icon="mdi-phone"
-                  v-model.trim="userData.phone"
-                >
-                </v-text-field>
+                <div class="wraper my-5">
+                  <v-text-field
+                    class="my-4"
+                    color="success"
+                    label="رقم الهاتف"
+                    prepend-icon="mdi-phone"
+                    v-model.trim="userData.phone"
+                  >
+                  </v-text-field>
+                </div>
               </div>
+            </div>
+          </div>
+        </tab-content>
 
-              <div class="col-12 col-md-6 my-3 px-5">
-                <v-text-field
-                  color="success"
-                  label="الوزن (بالكيلو)"
-                  prepend-icon="mdi-scale"
-                  v-model.trim="userData.weight"
-                >
-                </v-text-field>
+        <tab-content title=" الطول " icon="far fa-edit">
+          <div class="questions_content_wraper">
+            <div class="row justify-content-center align-items-center">
+              <div class="col-12 col-md-6 py-5">
+                <div class="wraper py-5">
+                  <h3 class="text-center mb-4">قم بإختيار طولك</h3>
+                  <h4 class="text-center mb-4">(cm) {{ userData.length }}</h4>
+                  <v-slider
+                    v-model="userData.length"
+                    class="align-center"
+                    :max="heightMax"
+                    :min="heightMin"
+                    hide-details
+                  >
+                  </v-slider>
+                </div>
               </div>
+            </div>
+          </div>
+        </tab-content>
 
-              <div class="col-12 col-md-6 my-3 px-5">
-                <v-text-field
-                  color="success"
-                  label="الطول (بالسنتيمتر)"
-                  prepend-icon="mdi-ruler"
-                  v-model.trim="userData.length"
-                >
-                </v-text-field>
+        <tab-content title=" الوزن " icon="far fa-edit">
+          <div class="questions_content_wraper">
+            <div class="row justify-content-center align-items-center">
+              <div class="col-12 col-md-6 py-5">
+                <div class="wraper py-5">
+                  <h3 class="text-center mb-4">قم بإختيار وزنك</h3>
+                  <h4 class="text-center mb-4">(kg) {{ userData.weight }}</h4>
+                  <v-slider
+                    v-model="userData.weight"
+                    class="align-center"
+                    :max="weightMax"
+                    :min="weightMin"
+                    hide-details
+                  >
+                  </v-slider>
+                </div>
               </div>
             </div>
           </div>
@@ -125,12 +153,22 @@ export default {
 
       questionsCount: 0,
 
+      // START:: HEIGHT DATA
+      heightMin: 0,
+      heightMax: 300,
+      // END:: HEIGHT DATA
+
+      // START:: WEIGHT DATA
+      weightMin: 0,
+      weightMax: 300,
+      // END:: WEIGHT DATA
+
       userData: {
         type: this.$route.params.type,
         name: "",
         phone: "",
-        length: "",
-        weight: "",
+        length: 0,
+        weight: 0,
         answer: [],
         description: "",
       },
@@ -236,7 +274,7 @@ export default {
             this.$swal.fire({
               position: "top-start",
               icon: "success",
-              text: "تم إرسال الإجابات وجارى تحليلها.....",
+              text: "تم إرسال بياناتك الى الكابتن",
               showConfirmButton: false,
               timer: 2000,
             });

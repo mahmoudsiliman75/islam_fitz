@@ -5,19 +5,19 @@
     <!-- END:: LOADER -->
 
     <!-- START:: HOME INTRO -->
-    <Homeintro :data="data" />
+    <Homeintro :data="data" v-if="data" />
     <!-- END:: HOME INTRO -->
 
     <!-- START:: ABOUT US -->
-    <AboutUs :data="data" />
+    <AboutUs :data="data" v-if="data" />
     <!-- END:: ABOUT US -->
 
     <!-- START:: BEFORE AND AFTER -->
-    <BeforeAndAfter />
+    <BeforeAndAfter v-if="data" />
     <!-- END:: BEFORE AND AFTER -->
 
     <!-- START:: COURSES -->
-    <Courses />
+    <Courses v-if="data" />
     <!-- END:: COURSES -->
   </div>
 </template>

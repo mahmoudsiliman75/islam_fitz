@@ -4,6 +4,14 @@
   background-position: center;
   background-size: cover;
 
+  .questions_main_title {
+    text-align: center;
+    font-weight: 900;
+    background: linear-gradient(to right, $secondaryColor, $mainColor);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   .questions_content_wraper {
     min-height: calc(100vh - 580px);
     padding-block: $paddingAmount;
@@ -79,10 +87,10 @@
 
           @media ( max-width: 767px) {
             img {
-              min-width: 105px;
-              max-width: 105px;
-              min-height: 105px;
-              max-height: 105px;
+              min-width: 120px;
+              max-width: 120px;
+              min-height: 120px;
+              max-height: 120px;
             }
           }
         }
@@ -91,6 +99,10 @@
   }
 
   @media ( max-width: 767px ) {
+    .questions_main_title {
+      font-size: 1.3rem;
+    }
+
     .questions_content_wraper {
       padding-block: 0;
     }
@@ -126,6 +138,10 @@
             display: none !important;
           }
         }
+      }
+
+      .wizard-tab-content {
+        padding-inline: 0 !important;
       }
     }
 

@@ -5,25 +5,23 @@
     </div>
 
     <div class="container">
-      <div class="row" data-aos="zoom-in" data-aos-duration="1500">
-        <div
-          class="col-9 col-md-3 my-2"
-          v-for="item in featuredBeforeAndAfter"
-          :key="item.id"
-        >
-          <div class="card">
-            <div class="image_wraper">
-              <img :src="item.image_url" />
-            </div>
+      <div class="before_after_carousel_wraper">
+        <splide :slides="featuredBeforeAndAfter" :options="options">
+          <splide-slide v-for="item in featuredBeforeAndAfter" :key="item.id">
+            <div class="card">
+              <div class="image_wraper">
+                <img :src="item.image_url" />
+              </div>
 
-            <div class="card_body_wraper">
-              <h5>{{ item.name }}</h5>
-              <div class="description">
-                {{ item.description }}
+              <div class="card_body_wraper">
+                <h5>{{ item.name }}</h5>
+                <div class="description">
+                  {{ item.description }}
+                </div>
               </div>
             </div>
-          </div>
-        </div>
+          </splide-slide>
+        </splide>
       </div>
 
       <div class="col-12">
@@ -43,47 +41,39 @@
 </template>
 
 <script>
+import { Splide, SplideSlide } from "@splidejs/vue-splide";
+import "@splidejs/splide/dist/css/themes/splide-default.min.css";
+
 import axios from "axios";
 export default {
+  components: {
+    Splide,
+    SplideSlide,
+  },
+
   data() {
     return {
       featuredBeforeAndAfter: null,
 
-      beforeAndAfterSliderSettings: {
-        dots: true,
-        arrows: true,
-        dotsClass: "slick-dots custom-dot-class",
-        edgeFriction: 5,
-        infinite: false,
-        speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        rtl: true,
-        responsive: [
-          {
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: 4,
-              slidesToScroll: 1,
-            },
+      options: {
+        pagination: false,
+        autoplay: true,
+        pauseOnHover: true,
+        rewind: false,
+        perPage: 4,
+        perMove: 1,
+        gap: "1rem",
+        speed: "2000",
+        direction: "rtl",
+        breakpoints: {
+          500: {
+            perPage: 1,
           },
-          {
-            breakpoint: 600,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1,
-            },
+
+          900: {
+            perPage: 3,
           },
-          {
-            breakpoint: 480,
-            settings: {
-              dots: false,
-              arrows: true,
-              slidesToShow: 1,
-              slidesToScroll: 1,
-            },
-          },
-        ],
+        },
       },
     };
   },
