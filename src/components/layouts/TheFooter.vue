@@ -155,7 +155,6 @@ export default {
     // START:: GET FOOTER DATA
     getFooterData() {
       axios.get("footer").then((res) => {
-        console.log(res.data[0]);
         this.footerData = res.data[0];
       });
     },

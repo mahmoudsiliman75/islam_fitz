@@ -14,7 +14,10 @@
         finishButtonText="إرسال"
         @on-complete="submitWizard"
       >
-        <tab-content title=" البيانات الأساسية " icon="far fa-edit">
+        <tab-content
+          title=" البيانات الأساسية "
+          :before-change="mainDataValidation"
+        >
           <div class="questions_content_wraper">
             <div class="row justify-content-center align-items-center">
               <div class="col-12 col-md-6">
@@ -43,7 +46,7 @@
           </div>
         </tab-content>
 
-        <tab-content title=" الطول " icon="far fa-edit">
+        <tab-content title=" الطول " :before-change="heightValidation">
           <div class="questions_content_wraper">
             <div class="row justify-content-center align-items-center">
               <div class="col-12 col-md-6 py-5">
@@ -64,7 +67,7 @@
           </div>
         </tab-content>
 
-        <tab-content title=" الوزن " icon="far fa-edit">
+        <tab-content title=" الوزن " :before-change="weightValidation">
           <div class="questions_content_wraper">
             <div class="row justify-content-center align-items-center">
               <div class="col-12 col-md-6 py-5">
@@ -89,7 +92,7 @@
           v-for="question in questions"
           :key="question.id"
           :title="question.question_title"
-          icon="far fa-edit"
+          :before-change="questionValidation"
         >
           <div class="questions_content_wraper">
             <div class="container">
@@ -178,10 +181,13 @@ export default {
   },
 
   methods: {
+    // START:: SELECT ANSWER
     selectedAnswer(id) {
       this.selected_answer = id;
       this.userData.answer.push(id);
     },
+    // END:: SELECT ANSWER
+
     // START:: AXIOS GET QUESTIONS
     getQuestion() {
       axios
@@ -198,67 +204,93 @@ export default {
     },
     // END:: AXIOS GET QUESTIONS
 
+    // START:: VALIDATION METHODS
+    mainDataValidation() {
+      if (
+        this.userData.name.length == 0 ||
+        this.userData.name == null ||
+        this.userData.phone.length == 0 ||
+        this.userData.phone == null
+      ) {
+        this.$swal.fire({
+          position: "top-start",
+          icon: "error",
+          text: "يجب ملئ جميع البيانات الأساسية",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        new Audio(require("../../../assets/sounds/error.mp3")).play();
+        return false;
+      } else {
+        return true;
+      }
+    },
+
+    heightValidation() {
+      if (
+        this.userData.length.length == 0 ||
+        this.userData.length == null ||
+        this.userData.length == 0
+      ) {
+        this.$swal.fire({
+          position: "top-start",
+          icon: "error",
+          text: "يجب تحديد طولك",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        new Audio(require("../../../assets/sounds/error.mp3")).play();
+        return false;
+      } else {
+        return true;
+      }
+    },
+
+    weightValidation() {
+      if (
+        this.userData.weight.length == 0 ||
+        this.userData.weight == null ||
+        this.userData.weight == 0
+      ) {
+        this.$swal.fire({
+          position: "top-start",
+          icon: "error",
+          text: "يجب تحديد وزنك",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        new Audio(require("../../../assets/sounds/error.mp3")).play();
+        return false;
+      } else {
+        return true;
+      }
+    },
+
+    questionValidation() {
+      console.log(this.selected_answer);
+      if (
+        this.selected_answer.length == 0 ||
+        this.selected_answer == 0 ||
+        this.selected_answer == null
+      ) {
+        this.$swal.fire({
+          position: "top-start",
+          icon: "error",
+          text: "يجب إختيار إجابة للسؤال",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        new Audio(require("../../../assets/sounds/error.mp3")).play();
+        return false;
+      } else {
+        this.selected_answer = 0;
+        return true;
+      }
+    },
+    // END:: VALIDATION METHODS
+
+    // START:: SUBMIT DATA
     submitWizard() {
-      if (this.userData.name.length == 0 || this.userData.name == null) {
-        this.$swal.fire({
-          position: "top-start",
-          icon: "error",
-          text: "حقل الإسم لايمكن ان يكون فارغ",
-          showConfirmButton: false,
-          timer: 2000,
-        });
-        new Audio(require("../../../assets/sounds/error.mp3")).play();
-        setTimeout(() => {
-          location.reload();
-        }, 1000);
-        return;
-      }
-
-      if (this.userData.phone.length == 0 || this.userData.phone == null) {
-        this.$swal.fire({
-          position: "top-start",
-          icon: "error",
-          text: "حقل الهاتف لايمكن ان يكون فارغ",
-          showConfirmButton: false,
-          timer: 2000,
-        });
-        new Audio(require("../../../assets/sounds/error.mp3")).play();
-        setTimeout(() => {
-          location.reload();
-        }, 1000);
-        return;
-      }
-
-      if (this.userData.weight.length == 0 || this.userData.weight == null) {
-        this.$swal.fire({
-          position: "top-start",
-          icon: "error",
-          text: "حقل الوزن لايمكن ان يكون فارغ",
-          showConfirmButton: false,
-          timer: 2000,
-        });
-        new Audio(require("../../../assets/sounds/error.mp3")).play();
-        setTimeout(() => {
-          location.reload();
-        }, 1000);
-        return;
-      }
-
-      if (this.userData.length.length == 0 || this.userData.length == null) {
-        this.$swal.fire({
-          position: "top-start",
-          icon: "error",
-          text: "حقل الطول لايمكن ان يكون فارغ",
-          showConfirmButton: false,
-          timer: 2000,
-        });
-        new Audio(require("../../../assets/sounds/error.mp3")).play();
-        setTimeout(() => {
-          location.reload();
-        }, 1000);
-        return;
-      }
-
       if (
         this.userData.answer.length == 0 ||
         this.userData.answer.length != this.questionsCount ||
@@ -305,6 +337,7 @@ export default {
           this.isLoading = false;
         });
     },
+    // FINISH:: SUBMIT DATA
   },
 
   mounted() {
