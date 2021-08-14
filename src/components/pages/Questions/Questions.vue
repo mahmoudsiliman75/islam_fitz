@@ -208,6 +208,9 @@ export default {
           timer: 2000,
         });
         new Audio(require("../../../assets/sounds/error.mp3")).play();
+        setTimeout(() => {
+          location.reload();
+        }, 1000);
         return;
       }
 
@@ -220,6 +223,9 @@ export default {
           timer: 2000,
         });
         new Audio(require("../../../assets/sounds/error.mp3")).play();
+        setTimeout(() => {
+          location.reload();
+        }, 1000);
         return;
       }
 
@@ -232,6 +238,9 @@ export default {
           timer: 2000,
         });
         new Audio(require("../../../assets/sounds/error.mp3")).play();
+        setTimeout(() => {
+          location.reload();
+        }, 1000);
         return;
       }
 
@@ -244,6 +253,9 @@ export default {
           timer: 2000,
         });
         new Audio(require("../../../assets/sounds/error.mp3")).play();
+        setTimeout(() => {
+          location.reload();
+        }, 1000);
         return;
       }
 
@@ -260,6 +272,9 @@ export default {
           timer: 2000,
         });
         new Audio(require("../../../assets/sounds/error.mp3")).play();
+        setTimeout(() => {
+          location.reload();
+        }, 1000);
         return;
       }
 
