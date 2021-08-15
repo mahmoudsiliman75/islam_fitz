@@ -22,7 +22,12 @@
     <!-- START:: WHATS APP BTN -->
     <a
       class="whats_btn"
-      :href="'https://wa.me/' + surveyResultData.whatsapp_number"
+      :href="
+        'https://wa.me/' +
+        surveyResultData.whatsapp_number +
+        '/?text=' +
+        surveyResultData.whatsapp_text
+      "
     >
       <span> تواصل مع الكابتن </span>
       <img
@@ -59,8 +64,7 @@ export default {
         .then((res) => {
           this.isLoading = false;
           this.surveyResultData = res.data[0];
-          this.test_video = res.data[0].video_url;
-          console.log(res.data[0].video_url);
+          console.log(res.data[0]);
         })
         .catch((error) => {
           console.log(error.data);
