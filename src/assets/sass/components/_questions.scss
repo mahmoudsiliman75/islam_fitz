@@ -16,15 +16,35 @@
     min-height: calc(100vh - 580px);
     padding-block: $paddingAmount;
     direction: rtl;
-    .v-input {
-      .v-input__slot {
-        .v-text-field__slot {
-          .v-label {
-            left: auto !important;
-            right: 0 !important;
+
+    #name {
+      margin-bottom: 35px;
+      padding-block: 12px;
+      @include borderRadius(8px);
+      &:focus {
+        box-shadow: none;
+      }
+    }
+
+    .vue-phone-number-input {
+      .select-country-container {
+        .country-selector__input {
+          border-radius: 0 8px 8px 0 !important;
+          border-left: none !important;
+          &:focus {
+            box-shadow: none !important;
           }
-          input {
-            padding-inline: 10px;
+        } 
+      }
+
+      .input-tel {
+        &.input-phone-number {
+          .input-tel__input {
+            border-radius: 8px 0 0 8px !important;
+            direction: ltr;
+            &:focus {
+              box-shadow: none !important;
+            }
           }
         }
       }
@@ -45,6 +65,55 @@
       @media ( max-width: 767px ) {
         h3 {
           font-size: 1.3rem;
+        }
+      }
+    }
+
+    .v-input {
+      .v-input__control {
+        .v-input__slot {
+          .v-slider {
+            .v-slider__track-container {
+              height: 12px;
+
+              .v-slider__track-background, 
+              .v-slider__track-fill {
+                @include borderRadius(25px);
+              }
+
+              .v-slider__track-background {
+                background-color: transparent !important;
+                border: 1px solid $mainColor !important;
+              } 
+
+              .v-slider__track-fill {
+                background-color: $mainColor !important;
+              }
+            }
+
+            .v-slider__thumb-container {
+              .v-slider__thumb {
+                width: 20px;
+                height: 20px;
+                background-color: transparent !important;
+                background-image: linear-gradient(to right, $darkGrey, $lightGrey, $lighterGrey);
+                &:hover {
+                  &::before {
+                    opacity: 0.3 !important;
+                  }
+                }
+                &::before {
+                  opacity: 0 !important;
+                  width: 28px;
+                  height: 28px;
+                  left: -4px;
+                  top: -4px;
+                  color: $darkGrey;
+                  @include transitioning(0.3s);
+                }
+              }
+            }
+          }
         }
       }
     }

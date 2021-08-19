@@ -55,13 +55,23 @@
     margin-block: 25px;
     .text-box {
       @include btnHoverEffect;
-    }
-    a, 
-    button {
-      font-size: 15px;
-      width: 16%;
-      margin-inline-end: 20px;
-      text-align: center;
+      a, 
+      button {
+        font-size: 15px;
+        width: 16%;
+        margin-inline-end: 20px;
+        text-align: center;
+        left: 40%;
+        transform: translateX(50%);
+      }
+
+      &:first-child {
+        a, 
+        button {
+          left: auto;
+          right: 24%;
+        }
+      }    
     }
   }
 
@@ -100,9 +110,14 @@
     }
 
     .btns_wraper {
-      a, 
-      button {
-        width: 40%;
+      width: 100%;   
+      .text-box {
+        @include btnHoverEffect;
+        a, 
+        button {
+          width: 40%;
+          left: -14%;
+        }  
       }
     }
 

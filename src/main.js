@@ -38,6 +38,10 @@ import i18n from "./i18n";
 import VueFormWizard from "vue-form-wizard";
 import "vue-form-wizard/dist/vue-form-wizard.min.css";
 
+// ======== VUE MOBILE NUMBER INPUT
+import VuePhoneNumberInput from "vue-phone-number-input";
+import "vue-phone-number-input/dist/vue-phone-number-input.css";
+
 // ======== VUETIFY
 import vuetify from "./plugins/vuetify";
 
@@ -54,6 +58,7 @@ Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 Vue.use(VueFormulate);
 Vue.use(VueFormWizard);
+Vue.component("vue-phone-number-input", VuePhoneNumberInput);
 Vue.prototype.$iziToast = iziToast;
 
 // AXIOS BASE URL

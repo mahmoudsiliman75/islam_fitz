@@ -22,24 +22,27 @@
             <div class="row justify-content-center align-items-center">
               <div class="col-12 col-md-6">
                 <div class="wraper my-5">
-                  <v-text-field
-                    color="success"
-                    label="اللإسم"
-                    prepend-icon="mdi-account"
-                    v-model.trim="userData.name"
-                  >
-                  </v-text-field>
+                  <label for="name" class="form-label"> الإسم </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    v-model.trim="name"
+                    placeholder="الإسم"
+                  />
                 </div>
 
                 <div class="wraper my-5">
-                  <v-text-field
-                    class="my-4"
-                    color="success"
-                    label="رقم الهاتف"
-                    prepend-icon="mdi-phone"
-                    v-model.trim="userData.phone"
-                  >
-                  </v-text-field>
+                  <label for="phone" class="form-label"> رقم الهاتف </label>
+                  <vue-phone-number-input
+                    id="phone"
+                    v-model="phoneNumber"
+                    default-country-code="EG"
+                    show-code-on-list
+                    size="lg"
+                    :translations="translations"
+                    @update="phoneResults = $event"
+                  />
                 </div>
               </div>
             </div>
@@ -52,9 +55,9 @@
               <div class="col-12 col-md-6 py-5">
                 <div class="wraper py-5">
                   <h3 class="text-center mb-4">قم بإختيار طولك</h3>
-                  <h4 class="text-center mb-4">(cm) {{ userData.length }}</h4>
+                  <h4 class="text-center mb-4">(cm) {{ length }}</h4>
                   <v-slider
-                    v-model="userData.length"
+                    v-model="length"
                     class="align-center"
                     :max="heightMax"
                     :min="heightMin"
@@ -73,9 +76,9 @@
               <div class="col-12 col-md-6 py-5">
                 <div class="wraper py-5">
                   <h3 class="text-center mb-4">قم بإختيار وزنك</h3>
-                  <h4 class="text-center mb-4">(kg) {{ userData.weight }}</h4>
+                  <h4 class="text-center mb-4">(kg) {{ weight }}</h4>
                   <v-slider
-                    v-model="userData.weight"
+                    v-model="weight"
                     class="align-center"
                     :max="weightMax"
                     :min="weightMin"
@@ -128,7 +131,7 @@
                 class="form-control mt-5"
                 rows="4"
                 placeholder=" ماهى طبيعة أصابتك؟ "
-                v-model="userData.description"
+                v-model="description"
                 v-if="question.hasDescription == true"
               ></textarea>
             </div>
@@ -150,6 +153,16 @@ export default {
 
   data() {
     return {
+      phoneNumber: null,
+      phoneResults: {
+        formattedNumber: "",
+      },
+
+      translations: {
+        countrySelectorLabel: "كود الدولة",
+        phoneNumberLabel: "رقم الهاتف",
+      },
+
       isLoading: true,
 
       selected_answer: "",
@@ -166,16 +179,15 @@ export default {
       weightMax: 300,
       // END:: WEIGHT DATA
 
-      userData: {
-        type: this.$route.params.type,
-        name: "",
-        phone: "",
-        length: 0,
-        weight: 0,
-        answer: [],
-        description: "",
-      },
+      // START:: USER DATA
+      type: this.$route.params.type,
+      name: "",
+      length: 0,
+      weight: 0,
+      answer: [],
+      description: "",
 
+      // START:: QUESTIONS DATA
       questions: null,
     };
   },
@@ -184,7 +196,7 @@ export default {
     // START:: SELECT ANSWER
     selectedAnswer(id) {
       this.selected_answer = id;
-      this.userData.answer.push(id);
+      this.answer.push(id);
     },
     // END:: SELECT ANSWER
 
@@ -207,10 +219,10 @@ export default {
     // START:: VALIDATION METHODS
     mainDataValidation() {
       if (
-        this.userData.name.length == 0 ||
-        this.userData.name == null ||
-        this.userData.phone.length == 0 ||
-        this.userData.phone == null
+        this.name.length == 0 ||
+        this.name == null ||
+        this.phoneResults.formattedNumber == 0 ||
+        this.phoneResults.formattedNumber == null
       ) {
         this.$swal.fire({
           position: "top-start",
@@ -227,11 +239,7 @@ export default {
     },
 
     heightValidation() {
-      if (
-        this.userData.length.length == 0 ||
-        this.userData.length == null ||
-        this.userData.length == 0
-      ) {
+      if (this.length.length == 0 || this.length == null || this.length == 0) {
         this.$swal.fire({
           position: "top-start",
           icon: "error",
@@ -247,11 +255,7 @@ export default {
     },
 
     weightValidation() {
-      if (
-        this.userData.weight.length == 0 ||
-        this.userData.weight == null ||
-        this.userData.weight == 0
-      ) {
+      if (this.weight.length == 0 || this.weight == null || this.weight == 0) {
         this.$swal.fire({
           position: "top-start",
           icon: "error",
@@ -292,9 +296,9 @@ export default {
     // START:: SUBMIT DATA
     submitWizard() {
       if (
-        this.userData.answer.length == 0 ||
-        this.userData.answer.length != this.questionsCount ||
-        this.userData.answer == null
+        this.answer.length == 0 ||
+        this.answer.length != this.questionsCount ||
+        this.answer == null
       ) {
         this.$swal.fire({
           position: "top-start",
@@ -313,7 +317,15 @@ export default {
       this.isLoading = true;
 
       axios
-        .post("survey/client/answer/create", this.userData)
+        .post("survey/client/answer/create", {
+          type: this.type,
+          name: this.name,
+          phone: this.phoneResults.formattedNumber,
+          length: this.length,
+          weight: this.weight,
+          answer: this.answer,
+          description: this.description,
+        })
         .then((res) => {
           if (res.statusText == "Created") {
             new Audio(require("../../../assets/sounds/done.mp3")).play();
