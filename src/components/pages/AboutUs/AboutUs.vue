@@ -4,10 +4,10 @@
     <Loader v-if="isLoading" />
     <!-- END:: LOADER -->
 
-    <div class="main_content_wraper">
+    <div class="main_content_wraper" v-if="aboutData">
       <div class="container">
         <div class="header_wraper">
-          <h2>عن كابتن إسلام</h2>
+          <h2>{{ aboutData.about_us_title }}</h2>
         </div>
 
         <div class="row justify-content-center">
@@ -54,13 +54,14 @@ export default {
           this.isLoading = false;
         }, 500);
         this.aboutData = res.data[0];
+
+        console.log(res.data[0]);
       });
     },
     // END:: GET ABOUT US PAGE DATA
   },
 
   mounted() {
-    this.isLoading = true;
     // START:: GET ABOUT US PAGE DATA
     this.getAboutData();
     // END:: GET ABOUT US PAGE DATA

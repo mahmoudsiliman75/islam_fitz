@@ -13,7 +13,7 @@
     <!-- END:: ABOUT US -->
 
     <!-- START:: BEFORE AND AFTER -->
-    <BeforeAndAfter v-if="data" />
+    <BeforeAndAfter :title="data.before_after_title" v-if="data" />
     <!-- END:: BEFORE AND AFTER -->
 
     <!-- START:: COURSES -->

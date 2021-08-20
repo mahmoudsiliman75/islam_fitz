@@ -6,7 +6,7 @@
 
     <div class="container">
       <h3 class="questions_main_title">
-        إختار بالضبط ما هو النظام الغذائي والتدريب الأفضل بالنسبة لك
+        احصل على خطتك التدريبية و الغذائية الافضل بالنسبة لك
       </h3>
       <form-wizard
         nextButtonText="التالى"

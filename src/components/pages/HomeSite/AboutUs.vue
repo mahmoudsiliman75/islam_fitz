@@ -25,7 +25,7 @@
 
         <div class="col-12 col-md-7 order-1 order-md-2">
           <div class="title_wraper">
-            <h2>عن كابتن إسلام</h2>
+            <h2>{{ data.about_us_title }}</h2>
           </div>
 
           <div class="text_wraper">

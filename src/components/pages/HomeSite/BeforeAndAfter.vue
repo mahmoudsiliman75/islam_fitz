@@ -1,7 +1,7 @@
 <template>
   <div id="before_after" class="before_after">
     <div class="title_wraper">
-      <h2>قبل و بعد</h2>
+      <h2>{{ title }}</h2>
     </div>
 
     <div class="container">
@@ -46,6 +46,8 @@ import "@splidejs/splide/dist/css/themes/splide-default.min.css";
 
 import axios from "axios";
 export default {
+  props: ["title"],
+
   components: {
     Splide,
     SplideSlide,
