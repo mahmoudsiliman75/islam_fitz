@@ -34,7 +34,12 @@
           &:focus {
             box-shadow: none !important;
           }
-        } 
+        }
+        
+        .country-selector__list {
+          height: 130px !important;
+          max-height: 130px !important;
+        }
       }
 
       .input-tel {
@@ -48,6 +53,8 @@
           }
         }
       }
+
+
     }
 
     .question_text_wraper {
