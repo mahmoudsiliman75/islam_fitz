@@ -11,7 +11,7 @@
 
       <div class="container">
         <div
-          class="row justify-content-center"
+          class="row justify-content-center mb-5"
           data-aos="zoom-in"
           data-aos-duration="1500"
         >
@@ -28,29 +28,27 @@
 
               <div class="card_body_wraper">
                 <h5>{{ element.name }}</h5>
-                <div class="description">
-                  {{ element.description }}
-                </div>
               </div>
             </div>
           </div>
           <!-- END:: BEFORE AND AFTER CARD -->
-
-          <div class="col-12">
-            <div class="pagenation" v-if="last_page == 1">
-              <ul>
-                <li
-                  v-for="index in last_page"
-                  :class="index === currentPage ? 'active' : ''"
-                  :key="index"
-                  @click="indexNumber(index)"
-                >
-                  {{ index }}
-                </li>
-              </ul>
-            </div>
-          </div>
         </div>
+
+        <!-- <div class="btns_wraper mt-5">
+          <div class="wraper mx-4">
+            <button class="btn">  
+              <i class="fas fa-chevron-right"></i> 
+              التالى
+            </button>
+          </div>
+
+          <div class="wraper mx-4">
+            <button class="btn">  
+              السابق
+              <i class="fas fa-chevron-left"></i> 
+            </button>
+          </div>
+        </div> -->
       </div>
     </div>
   </div>

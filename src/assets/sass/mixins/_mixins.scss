@@ -56,7 +56,7 @@
     @include transitioning(0.4s);
   }
   &:hover {
-    a{
+    a {
       color: $mainColor;
     }
   }
@@ -73,7 +73,7 @@
     padding: 8px 50px;
     display: inline-block;
     border-radius: 100px;
-    transition: all .2s;
+    transition: all 0.2s;
     position: absolute;
   }
 
@@ -100,7 +100,7 @@
     top: 0;
     left: 0;
     z-index: -1;
-    transition: all .4s;
+    transition: all 0.4s;
   }
 
   .btn-white::after {
@@ -116,7 +116,7 @@
   .btn-animated {
     animation: moveInBottom 5s ease-out;
     animation-fill-mode: backwards;
-}
+  }
 }
 @keyframes moveInBottom {
   0% {
@@ -127,6 +127,46 @@
   100% {
     opacity: 0.3;
     transform: translateY(0px);
+  }
+}
+
+@mixin btnSkewBackground {
+  width: 100%;
+  text-align: center;
+  background: $white;
+  button {
+    position: relative;
+    background: $mainColor;
+    color: $white;
+    padding: 10px 30px;
+    border: 2px solid $mainColor;
+    @include borderRadius(25px);
+    overflow: hidden;
+    z-index: 1;
+    &:focus {
+      box-shadow: none;
+    }
+    &:hover {
+      color: $mainColor;
+      &::after {
+        transform: skewX(45deg) scale(1, 1);
+        @include transitioning(0.4s);
+      }
+    }
+    &::after {
+      content: "";
+      background: $white;
+      position: absolute;
+      z-index: -1;
+      left: -10%;
+      right: -10%;
+      top: 0;
+      bottom: 0;
+      padding: 0.85em 0.75em;
+      display: block;
+      transform: skewX(45deg) scale(0, 1);
+      @include transitioning(0.4s);
+    }
   }
 }
 
@@ -152,10 +192,10 @@
     border-left: 2px solid $secondaryColor;
     border-radius: 0 0 0 5px;
   }
-  &::after{
+  &::after {
     top: 0;
     right: 0;
-    border-left: none; 
+    border-left: none;
     border-top: 2px solid $secondaryColor;
     border-right: 2px solid $secondaryColor;
     border-radius: 0 5px 0 0;

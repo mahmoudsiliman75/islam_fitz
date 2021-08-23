@@ -9,7 +9,7 @@
     <!-- START:: COURSES CONTENT -->
     <div class="overlay">
       <div class="title_wraper" data-aos="fade-up" data-aos-duration="2000">
-        <h2>الدورات التعليمية ستكون متاحة قريبا</h2>
+        <h2>البرامج التدريبية المخصصة ستكون متاحة قريبا</h2>
         <div class="loading">
           <span></span>
           <span></span>

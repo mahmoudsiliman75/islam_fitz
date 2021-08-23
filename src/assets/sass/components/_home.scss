@@ -271,11 +271,10 @@
     }
 
     .card_body_wraper {
-      min-height: 120px;
-      max-height: 120px;
       padding: 15px;
       text-align: center;
       h5 {
+        font-size: 1.2rem;
         font-weight: 600;
         background: linear-gradient(to right, $secondaryColor, $mainColor);
         background-clip: text;
@@ -306,12 +305,37 @@
     }
   }
 
+  .btns_wraper {
+    @include flexCenterAlignment;
+
+    .wraper {
+      @include btnSkewBackground;
+
+      svg {
+        margin-inline: 5px;
+      }
+    }
+
+  }
+
   @media ( max-width: 767px ) {
+    .card {
+      .image_wraper {
+        min-width: 100%;
+        max-width: 100%;
+        img {
+          min-width: 100%;
+          max-width: 100%;
+        }
+      }
+    }
+
     .btn_wraper {
+
       a, 
       button {
         width: 50%;
-        padding: 8px 20px;
+        padding: 8px 20px !important;
       }
     }
   }
@@ -362,7 +386,7 @@
     h2 {
       margin-bottom: 0;
       margin-inline-end: 10px;
-      font-size: 2.3rem;
+      font-size: 2rem;
       font-weight: 700;
       background: linear-gradient(to right, $secondaryColor, $mainColor);
       background-clip: text;

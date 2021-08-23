@@ -45,11 +45,6 @@ import "vue-phone-number-input/dist/vue-phone-number-input.css";
 // ======== VUETIFY
 import vuetify from "./plugins/vuetify";
 
-// let dashboard_lang = localStorage.getItem("dashboard_lang");
-// if (dashboard_lang == "ar") {
-//   require("../src/assets/sass/rtl.scss");
-// }
-
 AOS.init();
 Vue.use(iziToast);
 Vue.use(VueSweetalert2);

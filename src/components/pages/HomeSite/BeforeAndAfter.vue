@@ -15,9 +15,6 @@
 
               <div class="card_body_wraper">
                 <h5>{{ item.name }}</h5>
-                <div class="description">
-                  {{ item.description }}
-                </div>
               </div>
             </div>
           </splide-slide>
@@ -72,8 +69,12 @@ export default {
             perPage: 1,
           },
 
+          767: {
+            perPage: 2,
+          },
+
           900: {
-            perPage: 3,
+            perPage: 4,
           },
         },
       },
