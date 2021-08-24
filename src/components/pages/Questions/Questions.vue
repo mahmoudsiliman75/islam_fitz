@@ -55,7 +55,7 @@
               <div class="col-12 col-md-6 py-5">
                 <div class="wraper py-5">
                   <h3 class="text-center mb-4">قم بإختيار طولك</h3>
-                  <h4 class="text-center mb-4">(cm) {{ length }}</h4>
+                  <h4 class="text-center mb-4" dir="ltr">cm {{ length }}</h4>
                   <v-slider
                     v-model="length"
                     class="align-center"
@@ -76,7 +76,7 @@
               <div class="col-12 col-md-6 py-5">
                 <div class="wraper py-5">
                   <h3 class="text-center mb-4">قم بإختيار وزنك</h3>
-                  <h4 class="text-center mb-4">(kg) {{ weight }}</h4>
+                  <h4 class="text-center mb-4">kg {{ weight }}</h4>
                   <v-slider
                     v-model="weight"
                     class="align-center"
