@@ -2,7 +2,7 @@
   <header>
     <div class="logo_wraper">
       <router-link to="/">
-        <img src="../../assets/images/logo/logo.png" alt="Site Logo" />
+        <img :src="logo_url" alt="Site Logo" />
       </router-link>
     </div>
 
@@ -81,6 +81,8 @@
 <script>
 export default {
   name: "Header",
+
+  props: ["logo_url"],
 
   data() {
     return {

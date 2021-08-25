@@ -10,7 +10,7 @@
       <div class="row justify-content-center">
         <div class="footer_logo col-6 col-md-2">
           <router-link to="/">
-            <img src="../../assets/images/logo/logo.png" alt="Site Logo" />
+            <img :src="logo_url" alt="Site Logo" />
           </router-link>
         </div>
 
@@ -140,6 +140,8 @@ import axios from "axios";
 
 export default {
   name: "Footer",
+
+  props: ["logo_url"],
 
   components: {
     Scratch,
